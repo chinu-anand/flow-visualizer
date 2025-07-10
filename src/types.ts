@@ -4,6 +4,7 @@ export interface TraceId {
   timestamp: string;
   clientAppName: string;
   status: 'success' | 'error';
+  event?: string; // Add event property for starting point
 }
 
 // Node data for graph visualization

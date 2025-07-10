@@ -85,8 +85,8 @@ const GraphPage: React.FC = () => {
         // Transform data for React Flow - adjust positions for horizontal layout
         const horizontalNodes = data.nodes.map((node, index) => ({
           ...node,
-          // Position nodes with more space between them and start from the left edge
-          position: { x: index * 500, y: 150 },
+          // Add left margin to the first node for better appearance
+          position: { x: 100 + index * 500, y: 200 },
           draggable: false // Lock nodes in place
         }));
         
@@ -129,9 +129,9 @@ const GraphPage: React.FC = () => {
   }
   
   return (
-    <div className="flex h-[80vh]">
+    <div className="flex h-[calc(100vh-4rem)] w-full overflow-hidden">
       <div className={`flex-1 bg-white ${selectedNode ? 'w-2/3' : 'w-full'}`}>
-        <div className="p-4 border-b border-gray-200">
+        <div className="p-4 border-b border-gray-200 px-4">
           <h1 className="text-xl font-semibold text-purple-800">
             Order Flow Visualization
           </h1>
@@ -164,7 +164,7 @@ const GraphPage: React.FC = () => {
       </div>
       
       {selectedNode && (
-        <div className="w-1/3 border-l border-gray-200 overflow-y-auto">
+        <div className="w-1/3 border-l border-gray-200 flex flex-col max-h-full min-h-0">
           <div className="p-4 border-b border-gray-200 flex justify-between items-center">
             <h2 className="text-lg font-semibold text-purple-800">Log Details</h2>
             <button 
@@ -176,7 +176,6 @@ const GraphPage: React.FC = () => {
               </svg>
             </button>
           </div>
-          
           {/* Tabs */}
           <div className="flex border-b border-gray-200">
             <button
@@ -196,152 +195,153 @@ const GraphPage: React.FC = () => {
               Raw Log
             </button>
           </div>
-          
-          {activeTab === 'overview' && (
-            <div className="p-4">
-              <div className="mb-4">
-                <h3 className="text-md font-medium text-gray-700">Event</h3>
-                <p className="text-gray-900">{selectedNode.data.event}</p>
-              </div>
-              
-              <div className="mb-4">
-                <h3 className="text-md font-medium text-gray-700">Client App</h3>
-                <p className="text-gray-900">{selectedNode.data.clientAppName}</p>
-              </div>
-              
-              <div className="mb-4">
-                <h3 className="text-md font-medium text-gray-700">Status Code</h3>
-                <p className={`font-medium ${
-                  selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 
-                    ? 'text-green-600' 
-                    : 'text-red-600'
-                }`}>
-                  {selectedNode.data.statusCode}
-                </p>
-              </div>
-              
-              <div className="mb-4">
-                <h3 className="text-md font-medium text-gray-700">Latency</h3>
-                <p className="text-gray-900">{selectedNode.data.latency} ms</p>
-              </div>
-              
-              {/* Request URL and Verb */}
-              {(selectedNode.data.fullLog?.Request || selectedNode.data.fullLog?.RequestVerb) && (
+          <div className="flex-1 min-h-0 overflow-y-auto">
+            {activeTab === 'overview' && (
+              <div className="p-4">
                 <div className="mb-4">
-                  <h3 className="text-md font-medium text-gray-700">Request Details</h3>
-                  {selectedNode.data.fullLog?.RequestVerb && (
-                    <p className="text-gray-900 mt-1">
-                      <span className="font-medium">Method:</span> {selectedNode.data.fullLog.RequestVerb}
-                    </p>
-                  )}
-                  {selectedNode.data.fullLog?.Request && (
-                    <p className="text-gray-900 mt-1 break-all">
-                      <span className="font-medium">URL:</span> {selectedNode.data.fullLog.Request}
-                    </p>
-                  )}
+                  <h3 className="text-md font-medium text-gray-700">Event</h3>
+                  <p className="text-gray-900">{selectedNode.data.event}</p>
                 </div>
-              )}
-              
-              {/* Consumer Request */}
-              {selectedNode.data.fullLog?.ConsumerRequest && (
+                
                 <div className="mb-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-md font-medium text-gray-700">Consumer Request</h3>
-                    <button
-                      onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerRequest)}
-                      className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                  <div className="relative">
-                    <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
-                      {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerRequest)}
-                    </pre>
-                  </div>
+                  <h3 className="text-md font-medium text-gray-700">Client App</h3>
+                  <p className="text-gray-900">{selectedNode.data.clientAppName}</p>
                 </div>
-              )}
-              
-              {/* Consumer Response */}
-              {selectedNode.data.fullLog?.ConsumerResponse && (
+                
                 <div className="mb-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-md font-medium text-gray-700">Consumer Response</h3>
-                    <button
-                      onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerResponse)}
-                      className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                  <div className="relative">
-                    <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
-                      {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerResponse)}
-                    </pre>
-                  </div>
+                  <h3 className="text-md font-medium text-gray-700">Status Code</h3>
+                  <p className={`font-medium ${
+                    selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 
+                      ? 'text-green-600' 
+                      : 'text-red-600'
+                  }`}>
+                    {selectedNode.data.statusCode}
+                  </p>
                 </div>
-              )}
-              
-              {/* Backend Request */}
-              {selectedNode.data.fullLog?.BackendRequest && selectedNode.data.fullLog.BackendRequest !== "null" && (
+                
                 <div className="mb-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-md font-medium text-gray-700">Backend Request</h3>
-                    <button
-                      onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendRequest)}
-                      className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                  <div className="relative">
-                    <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
-                      {formatJsonForDisplay(selectedNode.data.fullLog.BackendRequest)}
-                    </pre>
-                  </div>
+                  <h3 className="text-md font-medium text-gray-700">Latency</h3>
+                  <p className="text-gray-900">{selectedNode.data.latency} ms</p>
                 </div>
-              )}
-              
-              {/* Backend Response */}
-              {selectedNode.data.fullLog?.BackendResponse && selectedNode.data.fullLog.BackendResponse !== "null" && (
-                <div className="mb-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-md font-medium text-gray-700">Backend Response</h3>
-                    <button
-                      onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendResponse)}
-                      className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
-                    >
-                      Copy
-                    </button>
+                
+                {/* Request URL and Verb */}
+                {(selectedNode.data.fullLog?.Request || selectedNode.data.fullLog?.RequestVerb) && (
+                  <div className="mb-4">
+                    <h3 className="text-md font-medium text-gray-700">Request Details</h3>
+                    {selectedNode.data.fullLog?.RequestVerb && (
+                      <p className="text-gray-900 mt-1">
+                        <span className="font-medium">Method:</span> {selectedNode.data.fullLog.RequestVerb}
+                      </p>
+                    )}
+                    {selectedNode.data.fullLog?.Request && (
+                      <p className="text-gray-900 mt-1 break-all">
+                        <span className="font-medium">URL:</span> {selectedNode.data.fullLog.Request}
+                      </p>
+                    )}
                   </div>
-                  <div className="relative">
-                    <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
-                      {formatJsonForDisplay(selectedNode.data.fullLog.BackendResponse)}
-                    </pre>
+                )}
+                
+                {/* Consumer Request */}
+                {selectedNode.data.fullLog?.ConsumerRequest && (
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-md font-medium text-gray-700">Consumer Request</h3>
+                      <button
+                        onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerRequest)}
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                        {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerRequest)}
+                      </pre>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
-          
-          {activeTab === 'raw' && (
-            <div className="p-4">
-              <div className="relative">
-                <button
-                  onClick={copyToClipboard}
-                  className="absolute top-2 right-2 bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
-                >
-                  {isCopied ? 'Copied!' : 'Copy'}
-                </button>
-                <pre 
-                  ref={jsonRef}
-                  className="bg-gray-50 p-3 pt-10 rounded-md text-xs overflow-x-auto border border-gray-200"
-                >
-                  {JSON.stringify(selectedNode.data.fullLog, null, 2)}
-                </pre>
+                )}
+                
+                {/* Consumer Response */}
+                {selectedNode.data.fullLog?.ConsumerResponse && (
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-md font-medium text-gray-700">Consumer Response</h3>
+                      <button
+                        onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerResponse)}
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                        {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerResponse)}
+                      </pre>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Backend Request */}
+                {selectedNode.data.fullLog?.BackendRequest && selectedNode.data.fullLog.BackendRequest !== "null" && (
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-md font-medium text-gray-700">Backend Request</h3>
+                      <button
+                        onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendRequest)}
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                        {formatJsonForDisplay(selectedNode.data.fullLog.BackendRequest)}
+                      </pre>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Backend Response */}
+                {selectedNode.data.fullLog?.BackendResponse && selectedNode.data.fullLog.BackendResponse !== "null" && (
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-md font-medium text-gray-700">Backend Response</h3>
+                      <button
+                        onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendResponse)}
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                        {formatJsonForDisplay(selectedNode.data.fullLog.BackendResponse)}
+                      </pre>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          )}
+            )}
+            
+            {activeTab === 'raw' && (
+              <div className="p-4">
+                <div className="relative">
+                  <button
+                    onClick={copyToClipboard}
+                    className="absolute top-2 right-2 bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                  >
+                    {isCopied ? 'Copied!' : 'Copy'}
+                  </button>
+                  <pre 
+                    ref={jsonRef}
+                    className="bg-gray-50 p-3 pt-10 rounded-md text-xs overflow-x-auto border border-gray-200"
+                  >
+                    {JSON.stringify(selectedNode.data.fullLog, null, 2)}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

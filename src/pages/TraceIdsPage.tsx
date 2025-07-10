@@ -80,20 +80,19 @@ const TraceIdsPage: React.FC = () => {
   }
   
   return (
-    <div className="max-w-5xl mx-auto pt-6">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-purple-800">Trace IDs</h1>
-        <p className="text-gray-600">
-          {searchType === 'accountId' ? 'Account ID' : searchType === 'traceId' ? 'Trace ID' : 'X-Correlation-ID'}: 
-          <span className="font-medium">{searchValue}</span>
+    <div className="max-w-7xl mx-auto pt-10 px-6">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-purple-800 mb-2">Trace IDs</h1>
+        <p className="text-gray-600 mb-1">
+          {searchType === 'accountId' ? 'Account ID' : searchType === 'traceId' ? 'Trace ID' : 'X-Correlation-ID'}:
+          <span className="font-medium ml-1">{searchValue}</span>
         </p>
         <p className="text-gray-600">
           Time Range: <span className="font-medium">{timeRange}</span>
         </p>
       </div>
-      
       {traceIds.length === 0 ? (
-        <div className="text-center py-8">
+        <div className="text-center py-12">
           <p className="text-gray-500">No trace IDs found for this account.</p>
           <button 
             onClick={() => navigate('/')}
@@ -104,38 +103,31 @@ const TraceIdsPage: React.FC = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
+          <table className="min-w-full divide-y divide-gray-200 text-base">
             <thead className="bg-purple-50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-800 uppercase tracking-wider">
-                  Trace ID
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-800 uppercase tracking-wider">
-                  Timestamp
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-800 uppercase tracking-wider">
-                  Client App Name
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-purple-800 uppercase tracking-wider">
-                  Status
-                </th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-purple-800 uppercase tracking-wider">Trace ID</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-purple-800 uppercase tracking-wider">Timestamp</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-purple-800 uppercase tracking-wider">Client App Name</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-purple-800 uppercase tracking-wider">Status</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-purple-800 uppercase tracking-wider">Starting Point</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {traceIds.map((trace) => (
+              {traceIds.map((trace, idx) => (
                 <tr 
                   key={trace.id} 
                   onClick={() => handleTraceIdClick(trace.id)}
                   className="hover:bg-gray-50 cursor-pointer"
                 >
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-purple-800">{trace.id}</div>
+                    <div className="text-base font-medium text-purple-800">{trace.id}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{formatDate(trace.timestamp)}</div>
+                    <div className="text-base text-gray-900">{formatDate(trace.timestamp)}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{trace.clientAppName}</div>
+                    <div className="text-base text-gray-900">{trace.clientAppName}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
@@ -145,6 +137,9 @@ const TraceIdsPage: React.FC = () => {
                     }`}>
                       {trace.status}
                     </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-base text-gray-900 font-semibold">{trace.event || '—'}</div>
                   </td>
                 </tr>
               ))}

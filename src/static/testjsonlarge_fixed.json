@@ -1,0 +1,47 @@
+[
+  {
+    "event": "/runSoqlQuery",
+    "fields": {
+      "UserIP": "249.153.32.22",
+      "Client": "",
+      "Environment": "prod",
+      "ClientAppName": "QF-GCP-Internal",
+      "TargetOrg": "",
+      "User-Agent": "Apache-HttpClient/4.5.13 (Java/11.0.23)",
+      "Request": "/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Zuora__Account__c%2C%20Zuora__ZuoraId__c%2C%20Zuora__External_Id__c%2C%20Zuora__TotalAmount__c%20FROM%20Zuora__ZInvoice__c%20WHERE%20Zuora__Account__c%20%3D%20%27001Vt00000czfEsIAI%27%20ORDER%20BY%20createddate%20DESC%20LIMIT%201",
+      "RequestVerb": "GET",
+      "StatusCode": "200",
+      "ErrorStatusCode": "",
+      "x-correlation-id": "a86833b8-f961-4d78-a3ca-af2d7f8f7536",
+      "sessionId": "",
+      "transactionId": "",
+      "accountId": "",
+      "x-b3-spanid": "c6375610d43aac60",
+      "x-b3-traceid": "e25421888bc6bcc0",
+      "step": "",
+      "ErrorContent": "null",
+      "client.received.time": 1751875415786,
+      "client.sent.time": 1751875415903,
+      "ConsumerRequest": "null",
+      "ConsumerResponse": {
+        "totalSize": 1,
+        "done": true,
+        "records": [
+          {
+            "attributes": {
+              "type": "Zuora__ZInvoice__c",
+              "url": "/services/data/v58.0/sobjects/Zuora__ZInvoice__c/a7fVt000002JTErIAO"
+            },
+            "Id": "a7fVt000002JTErIAO",
+            "Zuora__Account__c": "001Vt00000czfEsIAI",
+            "Zuora__ZuoraId__c": "8a129db297aef8240197b16280a151ff",
+            "Zuora__External_Id__c": "8a129db297aef8240197b16280a151ff",
+            "Zuora__TotalAmount__c": 95.0
+          }
+        ]
+      },
+      "BackendRequest": "null",
+      "BackendResponse": "null"
+    }
+  }
+]

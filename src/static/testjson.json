@@ -1,0 +1,2580 @@
+[
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/runSoqlQuery\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"249.153.32.22\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"prod\",\n                \t\t\"ClientAppName\": \"QF-GCP-Internal\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"Apache-HttpClient/4.5.13 (Java/11.0.23)\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Zuora__Account__c%2C%20Zuora__ZuoraId__c%2C%20Zuora__External_Id__c%2C%20Zuora__TotalAmount__c%20FROM%20Zuora__ZInvoice__c%20WHERE%20Zuora__Account__c%20%3D%20%27001Vt00000czfEsIAI%27%20ORDER%20BY%20createddate%20DESC%20LIMIT%201\",\n                \t\t\"RequestVerb\": \"GET\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"a86833b8-f961-4d78-a3ca-af2d7f8f7536\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"\",\n                    \"x-b3-spanid\": \"c6375610d43aac60\",\n                \t\t\"x-b3-traceid\": \"e25421888bc6bcc0\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751875415786,\n                \t\t\"client.sent.time\": 1751875415903,\n                \t\t\"ConsumerRequest\": \"null\",\n                \t\t\"ConsumerResponse\": {\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Zuora__ZInvoice__c\",\"url\":\"/services/data/v58.0/sobjects/Zuora__ZInvoice__c/a7fVt000002JTErIAO\"},\"Id\":\"a7fVt000002JTErIAO\",\"Zuora__Account__c\":\"001Vt00000czfEsIAI\",\"Zuora__ZuoraId__c\":\"8a129db297aef8240197b16280a151ff\",\"Zuora__External_Id__c\":\"8a129db297aef8240197b16280a151ff\",\"Zuora__TotalAmount__c\":95.0}]},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-07T08:03:35.700+0000",
+            "date_hour": "8",
+            "date_mday": "7",
+            "date_minute": "3",
+            "date_month": "july",
+            "date_second": "35",
+            "date_wday": "monday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/runSoqlQuery",
+                "/runSoqlQuery"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF-GCP-Internal",
+                "QF-GCP-Internal"
+            ],
+            "fields.ConsumerRequest": [
+                "null",
+                "null"
+            ],
+            "fields.ConsumerResponse.done": [
+                "true",
+                "true"
+            ],
+            "fields.ConsumerResponse.records{}.Id": [
+                "a7fVt000002JTErIAO",
+                "a7fVt000002JTErIAO"
+            ],
+            "fields.ConsumerResponse.records{}.Zuora__Account__c": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.ConsumerResponse.records{}.Zuora__External_Id__c": [
+                "8a129db297aef8240197b16280a151ff",
+                "8a129db297aef8240197b16280a151ff"
+            ],
+            "fields.ConsumerResponse.records{}.Zuora__TotalAmount__c": [
+                "95.0",
+                "95.0"
+            ],
+            "fields.ConsumerResponse.records{}.Zuora__ZuoraId__c": [
+                "8a129db297aef8240197b16280a151ff",
+                "8a129db297aef8240197b16280a151ff"
+            ],
+            "fields.ConsumerResponse.records{}.attributes.type": [
+                "Zuora__ZInvoice__c",
+                "Zuora__ZInvoice__c"
+            ],
+            "fields.ConsumerResponse.records{}.attributes.url": [
+                "/services/data/v58.0/sobjects/Zuora__ZInvoice__c/a7fVt000002JTErIAO",
+                "/services/data/v58.0/sobjects/Zuora__ZInvoice__c/a7fVt000002JTErIAO"
+            ],
+            "fields.ConsumerResponse.totalSize": [
+                "1",
+                "1"
+            ],
+            "fields.Environment": [
+                "prod",
+                "prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Zuora__Account__c%2C%20Zuora__ZuoraId__c%2C%20Zuora__External_Id__c%2C%20Zuora__TotalAmount__c%20FROM%20Zuora__ZInvoice__c%20WHERE%20Zuora__Account__c%20%3D%20%27001Vt00000czfEsIAI%27%20ORDER%20BY%20createddate%20DESC%20LIMIT%201",
+                "/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Zuora__Account__c%2C%20Zuora__ZuoraId__c%2C%20Zuora__External_Id__c%2C%20Zuora__TotalAmount__c%20FROM%20Zuora__ZInvoice__c%20WHERE%20Zuora__Account__c%20%3D%20%27001Vt00000czfEsIAI%27%20ORDER%20BY%20createddate%20DESC%20LIMIT%201"
+            ],
+            "fields.RequestVerb": [
+                "GET",
+                "GET"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)",
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)"
+            ],
+            "fields.UserIP": [
+                "249.153.32.22",
+                "249.153.32.22"
+            ],
+            "fields.accountId": [
+                "",
+                ""
+            ],
+            "fields.client.received.time": [
+                "1751875415786",
+                "1751875415786"
+            ],
+            "fields.client.sent.time": [
+                "1751875415903",
+                "1751875415903"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "c6375610d43aac60",
+                "c6375610d43aac60"
+            ],
+            "fields.x-b3-traceid": [
+                "e25421888bc6bcc0",
+                "e25421888bc6bcc0"
+            ],
+            "fields.x-correlation-id": [
+                "a86833b8-f961-4d78-a3ca-af2d7f8f7536",
+                "a86833b8-f961-4d78-a3ca-af2d7f8f7536"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-05dde6ae5885d0b1c.qf.splunkcloud.com",
+            "timeendpos": "1224",
+            "timestartpos": "1213"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/genericOrderCreation\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"249.153.32.30\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"prod\",\n                \t\t\"ClientAppName\": \"QF-GCP-Internal\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"Apache-HttpClient/4.5.14 (Java/11.0.23)\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/adapter/cc/genericOrderCreation\",\n                \t\t\"RequestVerb\": \"PATCH\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"8d2ccced-b564-4cde-e18c-7ac6d0887fd5\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"f0b101139f6259ff\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845867211,\n                \t\t\"client.sent.time\": 1751845868193,\n                \t\t\"ConsumerRequest\": [{\"sObject\":\"Order\",\"Id\":\"801Vt00000czGA5IAM\",\"Status\":\"Activated\",\"vloc_qf_OrderStatus__c\":\"Cancelled\",\"vloc_qf_FulfilmentStatus__c\":\"Cancelled\"}],\n                \t\t\"ConsumerResponse\": {\"Message\": \"Records processed successfully\", \"status\": \"Success\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:51:07.200+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "51",
+            "date_month": "july",
+            "date_second": "7",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/genericOrderCreation",
+                "/genericOrderCreation"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF-GCP-Internal",
+                "QF-GCP-Internal"
+            ],
+            "fields.ConsumerRequest{}.Id": "801Vt00000czGA5IAM",
+            "fields.ConsumerRequest{}.Status": "Activated",
+            "fields.ConsumerRequest{}.sObject": "Order",
+            "fields.ConsumerRequest{}.vloc_qf_FulfilmentStatus__c": "Cancelled",
+            "fields.ConsumerRequest{}.vloc_qf_OrderStatus__c": "Cancelled",
+            "fields.ConsumerResponse.Message": "Records processed successfully",
+            "fields.ConsumerResponse.status": [
+                "Success",
+                "Success"
+            ],
+            "fields.Environment": [
+                "prod",
+                "prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/adapter/cc/genericOrderCreation",
+                "/FiberConsumer/v1/Ordering/adapter/cc/genericOrderCreation"
+            ],
+            "fields.RequestVerb": [
+                "PATCH",
+                "PATCH"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "Apache-HttpClient/4.5.14 (Java/11.0.23)",
+                "Apache-HttpClient/4.5.14 (Java/11.0.23)"
+            ],
+            "fields.UserIP": [
+                "249.153.32.30",
+                "249.153.32.30"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845867211",
+                "1751845867211"
+            ],
+            "fields.client.sent.time": [
+                "1751845868193",
+                "1751845868193"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "f0b101139f6259ff",
+                "f0b101139f6259ff"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "8d2ccced-b564-4cde-e18c-7ac6d0887fd5",
+                "8d2ccced-b564-4cde-e18c-7ac6d0887fd5"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-002cd2e4b82aaaca7.qf.splunkcloud.com",
+            "timeendpos": "1035",
+            "timestartpos": "1024"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/sfdcOrderStatus\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/integration/sfdcOrderStatus\",\n                \t\t\"RequestVerb\": \"PUT\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"8d2ccced-b564-4cde-e18c-7ac6d0887fd5\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"8cc5ea2a446f877e\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845867149,\n                \t\t\"client.sent.time\": 1751845868255,\n                \t\t\"ConsumerRequest\": [{\"sObject\":\"Order\",\"Id\":\"801Vt00000czGA5IAM\",\"vloc_qf_OrderStatus__c\":\"Cancelled\",\"Status\":\"Activated\",\"vloc_qf_FulfilmentStatus__c\":\"Cancelled\",\"comOrderSysId\":\"7d902ec3c39ea650ade55913e40131ce\",\"sfdcAccountId\":\"001Vt00000czfEsIAI\"}],\n                \t\t\"ConsumerResponse\": {\"Message\": \"Records processed successfully\", \"status\": \"Success\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:51:07.100+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "51",
+            "date_month": "july",
+            "date_second": "7",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/sfdcOrderStatus",
+                "/sfdcOrderStatus"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest{}.Id": "801Vt00000czGA5IAM",
+            "fields.ConsumerRequest{}.Status": "Activated",
+            "fields.ConsumerRequest{}.comOrderSysId": "7d902ec3c39ea650ade55913e40131ce",
+            "fields.ConsumerRequest{}.sObject": "Order",
+            "fields.ConsumerRequest{}.sfdcAccountId": "001Vt00000czfEsIAI",
+            "fields.ConsumerRequest{}.vloc_qf_FulfilmentStatus__c": "Cancelled",
+            "fields.ConsumerRequest{}.vloc_qf_OrderStatus__c": "Cancelled",
+            "fields.ConsumerResponse.Message": "Records processed successfully",
+            "fields.ConsumerResponse.status": [
+                "Success",
+                "Success"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/integration/sfdcOrderStatus",
+                "/FiberConsumer/v1/Ordering/integration/sfdcOrderStatus"
+            ],
+            "fields.RequestVerb": [
+                "PUT",
+                "PUT"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845867149",
+                "1751845867149"
+            ],
+            "fields.client.sent.time": [
+                "1751845868255",
+                "1751845868255"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "8cc5ea2a446f877e",
+                "8cc5ea2a446f877e"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "8d2ccced-b564-4cde-e18c-7ac6d0887fd5",
+                "8d2ccced-b564-4cde-e18c-7ac6d0887fd5"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-002cd2e4b82aaaca7.qf.splunkcloud.com",
+            "timeendpos": "996",
+            "timestartpos": "985"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/updateAbandonedUser\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/updateAbandonedUser\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"c57e841f-a0f3-467b-d36b-8a1ab660af43\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"597469618bbfe9b6\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845862535,\n                \t\t\"client.sent.time\": 1751845862671,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\"},\n                \t\t\"ConsumerResponse\": {\"status\":\"Success\",\"Message\":\"User updated to abandonedActivation successfully - Id:005Vt00000DEvdFIAT\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:51:02.500+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "51",
+            "date_month": "july",
+            "date_second": "2",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/updateAbandonedUser",
+                "/updateAbandonedUser"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerResponse.Message": "User updated to abandonedActivation successfully - Id:005Vt00000DEvdFIAT",
+            "fields.ConsumerResponse.status": "Success",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/updateAbandonedUser",
+                "/FiberConsumer/v1/Ordering/cc/updateAbandonedUser"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845862535",
+                "1751845862535"
+            ],
+            "fields.client.sent.time": [
+                "1751845862671",
+                "1751845862671"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "597469618bbfe9b6",
+                "597469618bbfe9b6"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "c57e841f-a0f3-467b-d36b-8a1ab660af43",
+                "c57e841f-a0f3-467b-d36b-8a1ab660af43"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-004b2b922da85bed8.qf.splunkcloud.com",
+            "timeendpos": "996",
+            "timestartpos": "985"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/updateAccountStatus\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/updateAccountStatus\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"cbabd2bf-d756-450a-951e-ecb3750acb6a\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"3b4a5a6d7f905a22\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845860832,\n                \t\t\"client.sent.time\": 1751845862070,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\"},\n                \t\t\"ConsumerResponse\": {\"status\":\"Success\",\"Message\":\"Account and Order updated successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:51:00.800+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "51",
+            "date_month": "july",
+            "date_second": "0",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/updateAccountStatus",
+                "/updateAccountStatus"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerResponse.Message": "Account and Order updated successfully",
+            "fields.ConsumerResponse.status": "Success",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/updateAccountStatus",
+                "/FiberConsumer/v1/Ordering/cc/updateAccountStatus"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845860832",
+                "1751845860832"
+            ],
+            "fields.client.sent.time": [
+                "1751845862070",
+                "1751845862070"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "3b4a5a6d7f905a22",
+                "3b4a5a6d7f905a22"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "cbabd2bf-d756-450a-951e-ecb3750acb6a",
+                "cbabd2bf-d756-450a-951e-ecb3750acb6a"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-004b2b922da85bed8.qf.splunkcloud.com",
+            "timeendpos": "996",
+            "timestartpos": "985"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/log-service\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"249.153.32.20\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"prod\",\n                \t\t\"ClientAppName\": \"QF-GCP-Internal\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"Apache-HttpClient/4.5.13 (Java/11.0.23)\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/v1/utility-proxy/log-service\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"\",\n                    \"x-b3-spanid\": \"d73597bce3434084\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845860322,\n                \t\t\"client.sent.time\": 1751845860326,\n                \t\t\"ConsumerRequest\": {\"service\":\"/Partner/v1/SFMC/biwfTransaction/interaction/v1/events\",\"request\":{\"ContactKey\":\"003Vt00000cSbGTIA0\",\"EventDefinitionKey\":\"APIEvent-0b449412-e186-0c15-30d7-a1e5ce80060e\",\"Data\":{\"Account_ID\":\"001Vt00000czfEsIAI\",\"Contact_LastName\":\"KENNEDY\",\"Account_Number\":\"1257216\",\"Contact_FirstName\":\"TIFFANY\",\"Contact_Email\":\"tkennedy1976@gmail.com\",\"Contact_ID\":\"003Vt00000cSbGTIA0\",\"Contact_SMS_Number\":\"16089215807\",\"Contact_TransSMS_OptedIn\":\"true\",\"Equipments\":\"[{\\\"Equipment_SerialNumber\\\":null,\\\"Equipment_Name\\\":\\\"360 WiFi Pods\\\"}]\",\"NumberOfPods\":\"1\",\"Order_ProductName\":\"Fiber Internet\",\"Ordered_Products\":\"{\\\"ProductPrice\\\":[{\\\"recurringDue\\\":100.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Fiber Internet\\\",\\\"ProdDesc\\\":\\\"Up to 2 Gig/1 Gig - Price For Life\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreXIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":-5.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Bank Account Payment Discount\\\",\\\"ProdDesc\\\":\\\"ACH Discount\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreYIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"360 WiFi\\\",\\\"ProdDesc\\\":null,\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreZIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Professional Installation\\\",\\\"ProdDesc\\\":\\\"QF Fiber Install - For Installations\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreaIAB\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"360 WiFi Pods\\\",\\\"ProdDesc\\\":\\\"Leased\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NprebIAB\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null}]}\",\"request_id\":\"975bbd66ef0bd772c0db1d75e70bf7cd\"}},\"response\":{\"message\":null,\"errorcode\":null,\"documentation\":null,\"eventInstanceId\":\"60e0c10a-94b0-4ec3-9868-9906cd351f21\"},\"sourceSystem\":\"Quantum-GCP\",\"targetSystem\":\"Send communication to MC\",\"correlationId\":\"5cce0a4f-7d0f-451a-94ce-32e4c59935fd\",\"requestTime\":\"1751845859951\",\"responseTime\":\"252\",\"exception\":null},\n                \t\t\"ConsumerResponse\": \"null\",\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:51:00.300+0000",
+            "event": [
+                "/log-service",
+                "/log-service"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF-GCP-Internal",
+                "QF-GCP-Internal"
+            ],
+            "fields.ConsumerRequest.correlationId": "5cce0a4f-7d0f-451a-94ce-32e4c59935fd",
+            "fields.ConsumerRequest.exception": "null",
+            "fields.ConsumerRequest.request.ContactKey": "003Vt00000cSbGTIA0",
+            "fields.ConsumerRequest.request.Data.Account_ID": "001Vt00000czfEsIAI",
+            "fields.ConsumerRequest.request.Data.Account_Number": "1257216",
+            "fields.ConsumerRequest.request.Data.Contact_Email": "tkennedy1976@gmail.com",
+            "fields.ConsumerRequest.request.Data.Contact_FirstName": "TIFFANY",
+            "fields.ConsumerRequest.request.Data.Contact_ID": "003Vt00000cSbGTIA0",
+            "fields.ConsumerRequest.request.Data.Contact_LastName": "KENNEDY",
+            "fields.ConsumerRequest.request.Data.Contact_SMS_Number": "16089215807",
+            "fields.ConsumerRequest.request.Data.Contact_TransSMS_OptedIn": "true",
+            "fields.ConsumerRequest.request.Data.Equipments": "[{\"Equipment_SerialNumber\":null,\"Equipment_Name\":\"360 WiFi Pods\"}]",
+            "fields.ConsumerRequest.request.Data.NumberOfPods": "1",
+            "fields.ConsumerRequest.request.Data.Order_ProductName": "Fiber Internet",
+            "fields.ConsumerRequest.request.Data.Ordered_Products": "{\"ProductPrice\":[{\"recurringDue\":100.00,\"prodQuantity\":1,\"ProdName\":\"Fiber Internet\",\"ProdDesc\":\"Up to 2 Gig/1 Gig - Price For Life\",\"prodAction\":\"Add\",\"orderProductId\":\"802Vt00000NpreXIAR\",\"oneTimeDue\":0.00,\"numberType\":null},{\"recurringDue\":-5.00,\"prodQuantity\":1,\"ProdName\":\"Bank Account Payment Discount\",\"ProdDesc\":\"ACH Discount\",\"prodAction\":\"Add\",\"orderProductId\":\"802Vt00000NpreYIAR\",\"oneTimeDue\":0.00,\"numberType\":null},{\"recurringDue\":0.00,\"prodQuantity\":1,\"ProdName\":\"360 WiFi\",\"ProdDesc\":null,\"prodAction\":\"Add\",\"orderProductId\":\"802Vt00000NpreZIAR\",\"oneTimeDue\":0.00,\"numberType\":null},{\"recurringDue\":0.00,\"prodQuantity\":1,\"ProdName\":\"Professional Installation\",\"ProdDesc\":\"QF Fiber Install - For Installations\",\"prodAction\":\"Add\",\"orderProductId\":\"802Vt00000NpreaIAB\",\"oneTimeDue\":0.00,\"numberType\":null},{\"recurringDue\":0.00,\"prodQuantity\":1,\"ProdName\":\"360 WiFi Pods\",\"ProdDesc\":\"Leased\",\"prodAction\":\"Add\",\"orderProductId\":\"802Vt00000NprebIAB\",\"oneTimeDue\":0.00,\"numberType\":null}]}",
+            "fields.ConsumerRequest.request.Data.request_id": "975bbd66ef0bd772c0db1d75e70bf7cd",
+            "fields.ConsumerRequest.request.EventDefinitionKey": "APIEvent-0b449412-e186-0c15-30d7-a1e5ce80060e",
+            "fields.ConsumerRequest.requestTime": "1751845859951",
+            "fields.ConsumerRequest.response.documentation": "null",
+            "fields.ConsumerRequest.response.errorcode": "null",
+            "fields.ConsumerRequest.response.eventInstanceId": "60e0c10a-94b0-4ec3-9868-9906cd351f21",
+            "fields.ConsumerRequest.response.message": "null",
+            "fields.ConsumerRequest.responseTime": "252",
+            "fields.ConsumerRequest.service": "/Partner/v1/SFMC/biwfTransaction/interaction/v1/events",
+            "fields.ConsumerRequest.sourceSystem": "Quantum-GCP",
+            "fields.ConsumerRequest.targetSystem": "Send communication to MC",
+            "fields.ConsumerResponse": "null",
+            "fields.Environment": [
+                "prod",
+                "prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/v1/utility-proxy/log-service",
+                "/FiberConsumer/v1/Ordering/v1/utility-proxy/log-service"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)",
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)"
+            ],
+            "fields.UserIP": [
+                "249.153.32.20",
+                "249.153.32.20"
+            ],
+            "fields.accountId": [
+                "",
+                ""
+            ],
+            "fields.client.received.time": [
+                "1751845860322",
+                "1751845860322"
+            ],
+            "fields.client.sent.time": [
+                "1751845860326",
+                "1751845860326"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "d73597bce3434084",
+                "d73597bce3434084"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "",
+                ""
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/orderCancelConfirmation\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"249.153.32.20\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"prod\",\n                \t\t\"ClientAppName\": \"QF-GCP-Internal\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"Apache-HttpClient/4.5.13 (Java/11.0.23)\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/adapter/cc/orderCancelConfirmation\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"82f87101-5a2a-4333-8278-b6f577bee922\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"\",\n                    \"x-b3-spanid\": \"c9c35ec610f4909f\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845857801,\n                \t\t\"client.sent.time\": 1751845857959,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\",\"orderNumber\":\"A02260922\",\"sfmcValue\":null,\"notificationType\":null,\"comOrderExternalId\":\"7d902ec3c39ea650ade55913e40131ce\"},\n                \t\t\"ConsumerResponse\": {\"status\":\"Success\",\"CommsPayload\":\"{\\n  \\\"EventDefinitionKey\\\" : \\\"APIEvent-0b449412-e186-0c15-30d7-a1e5ce80060e\\\",\\n  \\\"Data\\\" : {\\n    \\\"request_id\\\" : \\\"975bbd66ef0bd772c0db1d75e70bf7cd\\\",\\n    \\\"Ordered_Products\\\" : \\\"{\\\\\\\"ProductPrice\\\\\\\":[{\\\\\\\"recurringDue\\\\\\\":100.00,\\\\\\\"prodQuantity\\\\\\\":1,\\\\\\\"ProdName\\\\\\\":\\\\\\\"Fiber Internet\\\\\\\",\\\\\\\"ProdDesc\\\\\\\":\\\\\\\"Up to 2 Gig/1 Gig - Price For Life\\\\\\\",\\\\\\\"prodAction\\\\\\\":\\\\\\\"Add\\\\\\\",\\\\\\\"orderProductId\\\\\\\":\\\\\\\"802Vt00000NpreXIAR\\\\\\\",\\\\\\\"oneTimeDue\\\\\\\":0.00,\\\\\\\"numberType\\\\\\\":null},{\\\\\\\"recurringDue\\\\\\\":-5.00,\\\\\\\"prodQuantity\\\\\\\":1,\\\\\\\"ProdName\\\\\\\":\\\\\\\"Bank Account Payment Discount\\\\\\\",\\\\\\\"ProdDesc\\\\\\\":\\\\\\\"ACH Discount\\\\\\\",\\\\\\\"prodAction\\\\\\\":\\\\\\\"Add\\\\\\\",\\\\\\\"orderProductId\\\\\\\":\\\\\\\"802Vt00000NpreYIAR\\\\\\\",\\\\\\\"oneTimeDue\\\\\\\":0.00,\\\\\\\"numberType\\\\\\\":null},{\\\\\\\"recurringDue\\\\\\\":0.00,\\\\\\\"prodQuantity\\\\\\\":1,\\\\\\\"ProdName\\\\\\\":\\\\\\\"360 WiFi\\\\\\\",\\\\\\\"ProdDesc\\\\\\\":null,\\\\\\\"prodAction\\\\\\\":\\\\\\\"Add\\\\\\\",\\\\\\\"orderProductId\\\\\\\":\\\\\\\"802Vt00000NpreZIAR\\\\\\\",\\\\\\\"oneTimeDue\\\\\\\":0.00,\\\\\\\"numberType\\\\\\\":null},{\\\\\\\"recurringDue\\\\\\\":0.00,\\\\\\\"prodQuantity\\\\\\\":1,\\\\\\\"ProdName\\\\\\\":\\\\\\\"Professional Installation\\\\\\\",\\\\\\\"ProdDesc\\\\\\\":\\\\\\\"QF Fiber Install - For Installations\\\\\\\",\\\\\\\"prodAction\\\\\\\":\\\\\\\"Add\\\\\\\",\\\\\\\"orderProductId\\\\\\\":\\\\\\\"802Vt00000NpreaIAB\\\\\\\",\\\\\\\"oneTimeDue\\\\\\\":0.00,\\\\\\\"numberType\\\\\\\":null},{\\\\\\\"recurringDue\\\\\\\":0.00,\\\\\\\"prodQuantity\\\\\\\":1,\\\\\\\"ProdName\\\\\\\":\\\\\\\"360 WiFi Pods\\\\\\\",\\\\\\\"ProdDesc\\\\\\\":\\\\\\\"Leased\\\\\\\",\\\\\\\"prodAction\\\\\\\":\\\\\\\"Add\\\\\\\",\\\\\\\"orderProductId\\\\\\\":\\\\\\\"802Vt00000NprebIAB\\\\\\\",\\\\\\\"oneTimeDue\\\\\\\":0.00,\\\\\\\"numberType\\\\\\\":null}]}\\\",\\n    \\\"Order_ProductName\\\" : \\\"Fiber Internet\\\",\\n    \\\"NumberOfPods\\\" : 1,\\n    \\\"Equipments\\\" : \\\"[{\\\\\\\"Equipment_SerialNumber\\\\\\\":null,\\\\\\\"Equipment_Name\\\\\\\":\\\\\\\"360 WiFi Pods\\\\\\\"}]\\\",\\n    \\\"Contact_TransSMS_OptedIn\\\" : true,\\n    \\\"Contact_SMS_Number\\\" : \\\"16089215807\\\",\\n    \\\"Contact_LastName\\\" : \\\"KENNEDY\\\",\\n    \\\"Contact_ID\\\" : \\\"003Vt00000cSbGTIA0\\\",\\n    \\\"Contact_FirstName\\\" : \\\"TIFFANY\\\",\\n    \\\"Contact_Email\\\" : \\\"tkennedy1976@gmail.com\\\",\\n    \\\"Account_Number\\\" : \\\"1257216\\\",\\n    \\\"Account_ID\\\" : \\\"001Vt00000czfEsIAI\\\"\\n  },\\n  \\\"ContactKey\\\" : \\\"003Vt00000cSbGTIA0\\\"\\n}\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:57.800+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "57",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/orderCancelConfirmation",
+                "/orderCancelConfirmation"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF-GCP-Internal",
+                "QF-GCP-Internal"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerRequest.comOrderExternalId": "7d902ec3c39ea650ade55913e40131ce",
+            "fields.ConsumerRequest.notificationType": "null",
+            "fields.ConsumerRequest.orderNumber": "A02260922",
+            "fields.ConsumerRequest.sfmcValue": "null",
+            "fields.ConsumerResponse.CommsPayload": "{\n  \"EventDefinitionKey\" : \"APIEvent-0b449412-e186-0c15-30d7-a1e5ce80060e\",\n  \"Data\" : {\n    \"request_id\" : \"975bbd66ef0bd772c0db1d75e70bf7cd\",\n    \"Ordered_Products\" : \"{\\\"ProductPrice\\\":[{\\\"recurringDue\\\":100.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Fiber Internet\\\",\\\"ProdDesc\\\":\\\"Up to 2 Gig/1 Gig - Price For Life\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreXIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":-5.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Bank Account Payment Discount\\\",\\\"ProdDesc\\\":\\\"ACH Discount\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreYIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"360 WiFi\\\",\\\"ProdDesc\\\":null,\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreZIAR\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"Professional Installation\\\",\\\"ProdDesc\\\":\\\"QF Fiber Install - For Installations\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NpreaIAB\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null},{\\\"recurringDue\\\":0.00,\\\"prodQuantity\\\":1,\\\"ProdName\\\":\\\"360 WiFi Pods\\\",\\\"ProdDesc\\\":\\\"Leased\\\",\\\"prodAction\\\":\\\"Add\\\",\\\"orderProductId\\\":\\\"802Vt00000NprebIAB\\\",\\\"oneTimeDue\\\":0.00,\\\"numberType\\\":null}]}\",\n    \"Order_ProductName\" : \"Fiber Internet\",\n    \"NumberOfPods\" : 1,\n    \"Equipments\" : \"[{\\\"Equipment_SerialNumber\\\":null,\\\"Equipment_Name\\\":\\\"360 WiFi Pods\\\"}]\",\n    \"Contact_TransSMS_OptedIn\" : true,\n    \"Contact_SMS_Number\" : \"16089215807\",\n    \"Contact_LastName\" : \"KENNEDY\",\n    \"Contact_ID\" : \"003Vt00000cSbGTIA0\",\n    \"Contact_FirstName\" : \"TIFFANY\",\n    \"Contact_Email\" : \"tkennedy1976@gmail.com\",\n    \"Account_Number\" : \"1257216\",\n    \"Account_ID\" : \"001Vt00000czfEsIAI\"\n  },\n  \"ContactKey\" : \"003Vt00000cSbGTIA0\"\n}",
+            "fields.ConsumerResponse.status": "Success",
+            "fields.Environment": [
+                "prod",
+                "prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/adapter/cc/orderCancelConfirmation",
+                "/FiberConsumer/v1/Ordering/adapter/cc/orderCancelConfirmation"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)",
+                "Apache-HttpClient/4.5.13 (Java/11.0.23)"
+            ],
+            "fields.UserIP": [
+                "249.153.32.20",
+                "249.153.32.20"
+            ],
+            "fields.accountId": [
+                "",
+                ""
+            ],
+            "fields.client.received.time": [
+                "1751845857801",
+                "1751845857801"
+            ],
+            "fields.client.sent.time": [
+                "1751845857959",
+                "1751845857959"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "c9c35ec610f4909f",
+                "c9c35ec610f4909f"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "82f87101-5a2a-4333-8278-b6f577bee922",
+                "82f87101-5a2a-4333-8278-b6f577bee922"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com",
+            "timeendpos": "1022",
+            "timestartpos": "1011"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/processNotifications\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/integration/processNotifications\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"201\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"5cce0a4f-7d0f-451a-94ce-32e4c59935fd\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"3bc519684d57385b\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845857751,\n                \t\t\"client.sent.time\": 1751845860404,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\",\"comOrderExternalId\":\"7d902ec3c39ea650ade55913e40131ce\",\"emailTemplate\":\"Order_Cancel_Confirmation\",\"emailSubTemplate\":\"New_Fiber_Installation\"},\n                \t\t\"ConsumerResponse\": {\"message\":\"Record Created Successfully\",\"status\":\"SUCCESS\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:57.700+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "57",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/processNotifications",
+                "/processNotifications"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerRequest.comOrderExternalId": "7d902ec3c39ea650ade55913e40131ce",
+            "fields.ConsumerRequest.emailSubTemplate": "New_Fiber_Installation",
+            "fields.ConsumerRequest.emailTemplate": "Order_Cancel_Confirmation",
+            "fields.ConsumerResponse.message": [
+                "Record Created Successfully",
+                "Record Created Successfully"
+            ],
+            "fields.ConsumerResponse.status": "SUCCESS",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/integration/processNotifications",
+                "/FiberConsumer/v1/Ordering/integration/processNotifications"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "201",
+                "201"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845857751",
+                "1751845857751"
+            ],
+            "fields.client.sent.time": [
+                "1751845860404",
+                "1751845860404"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "3bc519684d57385b",
+                "3bc519684d57385b"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "5cce0a4f-7d0f-451a-94ce-32e4c59935fd",
+                "5cce0a4f-7d0f-451a-94ce-32e4c59935fd"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com",
+            "timeendpos": "1007",
+            "timestartpos": "996"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/inboundNotification\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/com/inboundNotification\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"c8f5b742-2f8a-4f6e-8155-3b4ef6e2b920\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"LyVzmkdonlwysK2V\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845856926,\n                \t\t\"client.sent.time\": 1751845857008,\n                \t\t\"ConsumerRequest\": {\n    \"eventId\": \"53906ec3c39ea650ade55913e40131e8\",\n    \"eventTime\": \"2025-07-06 16:50:56\",\n    \"eventType\": \"SOM Order Status Update\",\n    \"event\": {\n        \"ServiceOrder\": {\n            \"ServiceOrderReference\": \"A02260922\",\n            \"State\": \"Cancelled\",\n            \"@type\": \"ServiceOrder\"\n        }\n    }\n},\n                \t\t\"ConsumerResponse\": {\"status\":\"success\",\"message\":\"Notification received successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:56.900+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "56",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/inboundNotification",
+                "/inboundNotification"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.event.ServiceOrder.@type": "ServiceOrder",
+            "fields.ConsumerRequest.event.ServiceOrder.ServiceOrderReference": "A02260922",
+            "fields.ConsumerRequest.event.ServiceOrder.State": "Cancelled",
+            "fields.ConsumerRequest.eventId": "53906ec3c39ea650ade55913e40131e8",
+            "fields.ConsumerRequest.eventTime": "2025-07-06 16:50:56",
+            "fields.ConsumerRequest.eventType": "SOM Order Status Update",
+            "fields.ConsumerResponse.message": [
+                "Notification received successfully",
+                "Notification received successfully"
+            ],
+            "fields.ConsumerResponse.status": [
+                "success",
+                "success"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/com/inboundNotification",
+                "/FiberConsumer/v1/Ordering/com/inboundNotification"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845856926",
+                "1751845856926"
+            ],
+            "fields.client.sent.time": [
+                "1751845857008",
+                "1751845857008"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "LyVzmkdonlwysK2V",
+                "LyVzmkdonlwysK2V"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "c8f5b742-2f8a-4f6e-8155-3b4ef6e2b920",
+                "c8f5b742-2f8a-4f6e-8155-3b4ef6e2b920"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "41",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-05dde6ae5885d0b1c.qf.splunkcloud.com",
+            "timeendpos": "995",
+            "timestartpos": "984"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/inboundNotification\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/com/inboundNotification\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"005a612d-afca-45f7-d54a-1716c9e07a52\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"J5DUG8sCvDxYZ6Ke\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845856641,\n                \t\t\"client.sent.time\": 1751845856832,\n                \t\t\"ConsumerRequest\": {\n    \"eventId\": \"6790aec3c39ea650ade55913e4013176\",\n    \"eventTime\": \"2025-07-06 16:50:56\",\n    \"eventType\": \"SOM Order Status Update\",\n    \"event\": {\n        \"ServiceOrder\": {\n            \"ServiceOrderReference\": \"A02260922\",\n            \"State\": \"Cancelled\",\n            \"@type\": \"ServiceOrder\"\n        }\n    }\n},\n                \t\t\"ConsumerResponse\": {\"status\":\"success\",\"message\":\"Notification received successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:56.600+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "56",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/inboundNotification",
+                "/inboundNotification"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.event.ServiceOrder.@type": "ServiceOrder",
+            "fields.ConsumerRequest.event.ServiceOrder.ServiceOrderReference": "A02260922",
+            "fields.ConsumerRequest.event.ServiceOrder.State": "Cancelled",
+            "fields.ConsumerRequest.eventId": "6790aec3c39ea650ade55913e4013176",
+            "fields.ConsumerRequest.eventTime": "2025-07-06 16:50:56",
+            "fields.ConsumerRequest.eventType": "SOM Order Status Update",
+            "fields.ConsumerResponse.message": [
+                "Notification received successfully",
+                "Notification received successfully"
+            ],
+            "fields.ConsumerResponse.status": [
+                "success",
+                "success"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/com/inboundNotification",
+                "/FiberConsumer/v1/Ordering/com/inboundNotification"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845856641",
+                "1751845856641"
+            ],
+            "fields.client.sent.time": [
+                "1751845856832",
+                "1751845856832"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "J5DUG8sCvDxYZ6Ke",
+                "J5DUG8sCvDxYZ6Ke"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "005a612d-afca-45f7-d54a-1716c9e07a52",
+                "005a612d-afca-45f7-d54a-1716c9e07a52"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "41",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-002cd2e4b82aaaca7.qf.splunkcloud.com",
+            "timeendpos": "995",
+            "timestartpos": "984"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/inboundNotification\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/com/inboundNotification\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"bde3d00c-9fa8-4686-de95-5da7392d7728\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"p6H8GZ1PKW3raYWy\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845856383,\n                \t\t\"client.sent.time\": 1751845856544,\n                \t\t\"ConsumerRequest\": {\n    \"eventId\": \"5390aec3c39ea650ade55913e4013141\",\n    \"eventTime\": \"2025-07-06 16:50:56\",\n    \"eventType\": \"SOM Order Status Update\",\n    \"event\": {\n        \"ServiceOrder\": {\n            \"ServiceOrderReference\": \"A02260922\",\n            \"State\": \"Cancelled\",\n            \"@type\": \"ServiceOrder\"\n        }\n    }\n},\n                \t\t\"ConsumerResponse\": {\"status\":\"success\",\"message\":\"Notification received successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:56.300+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "56",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/inboundNotification",
+                "/inboundNotification"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.event.ServiceOrder.@type": "ServiceOrder",
+            "fields.ConsumerRequest.event.ServiceOrder.ServiceOrderReference": "A02260922",
+            "fields.ConsumerRequest.event.ServiceOrder.State": "Cancelled",
+            "fields.ConsumerRequest.eventId": "5390aec3c39ea650ade55913e4013141",
+            "fields.ConsumerRequest.eventTime": "2025-07-06 16:50:56",
+            "fields.ConsumerRequest.eventType": "SOM Order Status Update",
+            "fields.ConsumerResponse.message": [
+                "Notification received successfully",
+                "Notification received successfully"
+            ],
+            "fields.ConsumerResponse.status": [
+                "success",
+                "success"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/com/inboundNotification",
+                "/FiberConsumer/v1/Ordering/com/inboundNotification"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845856383",
+                "1751845856383"
+            ],
+            "fields.client.sent.time": [
+                "1751845856544",
+                "1751845856544"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "p6H8GZ1PKW3raYWy",
+                "p6H8GZ1PKW3raYWy"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "bde3d00c-9fa8-4686-de95-5da7392d7728",
+                "bde3d00c-9fa8-4686-de95-5da7392d7728"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "41",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-002cd2e4b82aaaca7.qf.splunkcloud.com",
+            "timeendpos": "995",
+            "timestartpos": "984"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/dtn-disconnect\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/som-gcp/dtn-disconnect\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"9fdf49f2-0644-4b8c-d631-2e1d387b86a9\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"CmXQSdgFe540rlsp\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845854684,\n                \t\t\"client.sent.time\": 1751845854790,\n                \t\t\"ConsumerRequest\": {\"tn\":\"1501870456\"},\n                \t\t\"ConsumerResponse\": {\n  \"status\" : \"SUCCESS\",\n  \"message\" : \"\",\n  \"uniqueErrorCode\" : 0,\n  \"createErrorRecord\" : false,\n  \"success\" : true\n},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:54.600+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "54",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/dtn-disconnect",
+                "/dtn-disconnect"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.tn": "1501870456",
+            "fields.ConsumerResponse.createErrorRecord": "false",
+            "fields.ConsumerResponse.message": [
+                "",
+                ""
+            ],
+            "fields.ConsumerResponse.status": [
+                "SUCCESS",
+                "SUCCESS"
+            ],
+            "fields.ConsumerResponse.success": "true",
+            "fields.ConsumerResponse.uniqueErrorCode": "0",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/som-gcp/dtn-disconnect",
+                "/FiberConsumer/v1/Ordering/som-gcp/dtn-disconnect"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845854684",
+                "1751845854684"
+            ],
+            "fields.client.sent.time": [
+                "1751845854790",
+                "1751845854790"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "CmXQSdgFe540rlsp",
+                "CmXQSdgFe540rlsp"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "9fdf49f2-0644-4b8c-d631-2e1d387b86a9",
+                "9fdf49f2-0644-4b8c-d631-2e1d387b86a9"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "36",
+            "punct": "{________________t\"\":\"/-\",________________t\"\":{___",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-05dde6ae5885d0b1c.qf.splunkcloud.com",
+            "timeendpos": "985",
+            "timestartpos": "974"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/deleteUserAccount\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/som-ent-apigee/deleteUserAccount\",\n                \t\t\"RequestVerb\": \"DELETE\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"c1f3b94d-e77f-4245-cd20-5f63eac87fc9\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"bvLx113BdiH6EhGT\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845853556,\n                \t\t\"client.sent.time\": 1751845853947,\n                \t\t\"ConsumerRequest\": {\n  \"ImprovAccountRequest\": {\n    \"callingSystemName\": \"QF SOM\",\n    \"services\": [\n      {\n        \"tn\": \"1501870456\"\n      }\n    ]\n  }\n},\n                \t\t\"ConsumerResponse\": {\n  \"ImprovAccountResponse\" : {\n    \"serviceResponses\" : [ {\n      \"names\" : [ \"DSL\" ],\n      \"tns\" : [ \"1501870456\" ],\n      \"message\" : {\n        \"status\" : \"SUCCESS\",\n        \"source\" : \"IMPROV\",\n        \"message\" : \"User account disabled successfully!\"\n      }\n    } ]\n  }\n},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:53.500+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "53",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/deleteUserAccount",
+                "/deleteUserAccount"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.ImprovAccountRequest.callingSystemName": "QF SOM",
+            "fields.ConsumerRequest.ImprovAccountRequest.services{}.tn": "1501870456",
+            "fields.ConsumerResponse.ImprovAccountResponse.serviceResponses{}.message.message": "User account disabled successfully!",
+            "fields.ConsumerResponse.ImprovAccountResponse.serviceResponses{}.message.source": "IMPROV",
+            "fields.ConsumerResponse.ImprovAccountResponse.serviceResponses{}.message.status": "SUCCESS",
+            "fields.ConsumerResponse.ImprovAccountResponse.serviceResponses{}.names{}": "DSL",
+            "fields.ConsumerResponse.ImprovAccountResponse.serviceResponses{}.tns{}": "1501870456",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/som-ent-apigee/deleteUserAccount",
+                "/FiberConsumer/v1/Ordering/som-ent-apigee/deleteUserAccount"
+            ],
+            "fields.RequestVerb": [
+                "DELETE",
+                "DELETE"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845853556",
+                "1751845853556"
+            ],
+            "fields.client.sent.time": [
+                "1751845853947",
+                "1751845853947"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "bvLx113BdiH6EhGT",
+                "bvLx113BdiH6EhGT"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "c1f3b94d-e77f-4245-cd20-5f63eac87fc9",
+                "c1f3b94d-e77f-4245-cd20-5f63eac87fc9"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "51",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com",
+            "timeendpos": "1000",
+            "timestartpos": "989"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/CancelFiber\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/som-ent-apigee/CancelFiber\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"dbec5e6a-e00f-48e5-c93f-7fc65728152b\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"I2FYVcag0iOpVyfm\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845849732,\n                \t\t\"client.sent.time\": 1751845852754,\n                \t\t\"ConsumerRequest\": {\"serviceOrderReference\":\"A02260922\"},\n                \t\t\"ConsumerResponse\": \n            {\n                \"status\": \"SUCCESS\",\n                \"message\": \"\",\n                \"messageText\": \"\"\n            }\n        ,\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:49.700+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "49",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/CancelFiber",
+                "/CancelFiber"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.serviceOrderReference": "A02260922",
+            "fields.ConsumerResponse.message": [
+                "",
+                ""
+            ],
+            "fields.ConsumerResponse.messageText": "",
+            "fields.ConsumerResponse.status": "SUCCESS",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/som-ent-apigee/CancelFiber",
+                "/FiberConsumer/v1/Ordering/som-ent-apigee/CancelFiber"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845849732",
+                "1751845849732"
+            ],
+            "fields.client.sent.time": [
+                "1751845852754",
+                "1751845852754"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "I2FYVcag0iOpVyfm",
+                "I2FYVcag0iOpVyfm"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "dbec5e6a-e00f-48e5-c93f-7fc65728152b",
+                "dbec5e6a-e00f-48e5-c93f-7fc65728152b"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "36",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com",
+            "timeendpos": "986",
+            "timestartpos": "975"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/accounts\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"QF_SOM\",\n                \t\t\"TargetOrg\" : \"\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/ServiceAssurance/v1/Diagnostics/adapt/accounts\",\n                \t\t\"RequestVerb\": \"DELETE\",\n                \t\t\"StatusCode\": \"204\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"1c536415-8134-4587-994a-b9a8b227145e\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"GG5NvUNOukVO6OeC\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845847347,\n                \t\t\"client.sent.time\": 1751845848083,\n                \t\t\"ConsumerRequest\": {\"accountId\":\"001Vt00000czfEsIAI\"},\n                \t\t\"ConsumerResponse\": \"null\",\n                \t\t\"BackendRequest\": {},\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:47.300+0000",
+            "event": [
+                "/accounts",
+                "/accounts"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "QF_SOM",
+                "QF_SOM"
+            ],
+            "fields.ConsumerRequest.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.ConsumerResponse": "null",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/ServiceAssurance/v1/Diagnostics/adapt/accounts",
+                "/ServiceAssurance/v1/Diagnostics/adapt/accounts"
+            ],
+            "fields.RequestVerb": [
+                "DELETE",
+                "DELETE"
+            ],
+            "fields.StatusCode": [
+                "204",
+                "204"
+            ],
+            "fields.TargetOrg": [
+                "",
+                ""
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845847347",
+                "1751845847347"
+            ],
+            "fields.client.sent.time": [
+                "1751845848083",
+                "1751845848083"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "GG5NvUNOukVO6OeC",
+                "GG5NvUNOukVO6OeC"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "1c536415-8134-4587-994a-b9a8b227145e",
+                "1c536415-8134-4587-994a-b9a8b227145e"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-0a2f67b59e22c00ed.qf.splunkcloud.com"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/sn_ind_tmt_orm/cancelserviceorder\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/som-snow/sn_ind_tmt_orm/cancelserviceorder\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"f3c7aae2-b083-442d-8f50-89641e6843b1\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"66f01ee48ef1e392\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845838399,\n                \t\t\"client.sent.time\": 1751845839294,\n                \t\t\"ConsumerRequest\": {\"requestedCancellationDate\":\"2025-07-05T07:00:00.000Z\",\"cancellationReason\":\"\",\"@type\":\"CancelServiceorder\",\"FromOrder\":\"\",\"serviceOrder\":{\"@referredType\":\"ServiceOrder\",\"id\":\"da6eaca8c3e2a690ade55913e40131cf\"}},\n                \t\t\"ConsumerResponse\": {\"id\":\"da6eaca8c3e2a690ade55913e40131cf\",\"cancellationReason\":\"\",\"requestedCancellationDate\":\"2025-07-05T07:00:00.000Z\",\"@type\":\"CancelServiceorder\",\"serviceOrder\":{\"@referredType\":\"ServiceOrder\",\"id\":\"da6eaca8c3e2a690ade55913e40131cf\"},\"state\":\"done\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:38.300+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "38",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/sn_ind_tmt_orm/cancelserviceorder",
+                "/sn_ind_tmt_orm/cancelserviceorder"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.@type": [
+                "CancelServiceorder",
+                "CancelServiceorder"
+            ],
+            "fields.ConsumerRequest.FromOrder": "",
+            "fields.ConsumerRequest.cancellationReason": [
+                "",
+                ""
+            ],
+            "fields.ConsumerRequest.requestedCancellationDate": [
+                "2025-07-05T07:00:00.000Z",
+                "2025-07-05T07:00:00.000Z"
+            ],
+            "fields.ConsumerRequest.serviceOrder.@referredType": "ServiceOrder",
+            "fields.ConsumerRequest.serviceOrder.id": "da6eaca8c3e2a690ade55913e40131cf",
+            "fields.ConsumerResponse.@type": [
+                "CancelServiceorder",
+                "CancelServiceorder"
+            ],
+            "fields.ConsumerResponse.cancellationReason": [
+                "",
+                ""
+            ],
+            "fields.ConsumerResponse.id": [
+                "da6eaca8c3e2a690ade55913e40131cf",
+                "da6eaca8c3e2a690ade55913e40131cf"
+            ],
+            "fields.ConsumerResponse.requestedCancellationDate": [
+                "2025-07-05T07:00:00.000Z",
+                "2025-07-05T07:00:00.000Z"
+            ],
+            "fields.ConsumerResponse.serviceOrder.@referredType": "ServiceOrder",
+            "fields.ConsumerResponse.serviceOrder.id": "da6eaca8c3e2a690ade55913e40131cf",
+            "fields.ConsumerResponse.state": [
+                "done",
+                "done"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/som-snow/sn_ind_tmt_orm/cancelserviceorder",
+                "/FiberConsumer/v1/Ordering/som-snow/sn_ind_tmt_orm/cancelserviceorder"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845838399",
+                "1751845838399"
+            ],
+            "fields.client.sent.time": [
+                "1751845839294",
+                "1751845839294"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "66f01ee48ef1e392",
+                "66f01ee48ef1e392"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "f3c7aae2-b083-442d-8f50-89641e6843b1",
+                "f3c7aae2-b083-442d-8f50-89641e6843b1"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"//\",________________t\"\":{___",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-004b2b922da85bed8.qf.splunkcloud.com",
+            "timeendpos": "1030",
+            "timestartpos": "1019"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/cancelWorkOrder\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/cancelWorkOrder\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"80e3fe81-04f9-4dd2-9cad-cec365a1de4d\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"be40eb627276833a\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845837839,\n                \t\t\"client.sent.time\": 1751845837966,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\"},\n                \t\t\"ConsumerResponse\": {\"status\":\"Success\",\"Message\":\"Workorder canceled successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:37.800+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "37",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/cancelWorkOrder",
+                "/cancelWorkOrder"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerResponse.Message": "Workorder canceled successfully",
+            "fields.ConsumerResponse.status": [
+                "Success",
+                "Success"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/cancelWorkOrder",
+                "/FiberConsumer/v1/Ordering/cc/cancelWorkOrder"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845837839",
+                "1751845837839"
+            ],
+            "fields.client.sent.time": [
+                "1751845837966",
+                "1751845837966"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "be40eb627276833a",
+                "be40eb627276833a"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "80e3fe81-04f9-4dd2-9cad-cec365a1de4d",
+                "80e3fe81-04f9-4dd2-9cad-cec365a1de4d"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-002cd2e4b82aaaca7.qf.splunkcloud.com",
+            "timeendpos": "988",
+            "timestartpos": "977"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/updateAccount/A01359246\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/zuora/updateAccount/A01359246\",\n                \t\t\"RequestVerb\": \"PUT\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"bed00408-11dd-4a26-f2b7-35e6565d44fb\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"7ad6a81874eee564\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845836729,\n                \t\t\"client.sent.time\": 1751845837393,\n                \t\t\"ConsumerRequest\": {\n  \"autoPay\" : false\n},\n                \t\t\"ConsumerResponse\": {\n  \"success\" : true\n},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:36.700+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "36",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/updateAccount/A01359246",
+                "/updateAccount/A01359246"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.autoPay": "false",
+            "fields.ConsumerResponse.success": "true",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/zuora/updateAccount/A01359246",
+                "/FiberConsumer/v1/Ordering/zuora/updateAccount/A01359246"
+            ],
+            "fields.RequestVerb": [
+                "PUT",
+                "PUT"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845836729",
+                "1751845836729"
+            ],
+            "fields.client.sent.time": [
+                "1751845837393",
+                "1751845837393"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "7ad6a81874eee564",
+                "7ad6a81874eee564"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "bed00408-11dd-4a26-f2b7-35e6565d44fb",
+                "bed00408-11dd-4a26-f2b7-35e6565d44fb"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "34",
+            "punct": "{________________t\"\":\"//\",________________t\"\":{___",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-05dde6ae5885d0b1c.qf.splunkcloud.com",
+            "timeendpos": "1006",
+            "timestartpos": "995"
+        }
+    },
+    {
+        "preview": false,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/updateCaseStatus\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/updateCaseStatus\",\n                \t\t\"RequestVerb\": \"POST\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"dcdd8e17-d3f1-453c-ce8e-049571d0021f\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"001Vt00000czfEsIAI\",\n                    \"x-b3-spanid\": \"152eb157538331ac\",\n                \t\t\"x-b3-traceid\": \"ca17b80841f91750383073c634577f21\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845836050,\n                \t\t\"client.sent.time\": 1751845836158,\n                \t\t\"ConsumerRequest\": {\"OrderNumber\":\"A02260922\"},\n                \t\t\"ConsumerResponse\": {\"Status\":\"Success\",\"Message\":\"Case updated successfully\"},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:36.000+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "36",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/updateCaseStatus",
+                "/updateCaseStatus"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest.OrderNumber": "A02260922",
+            "fields.ConsumerResponse.Message": "Case updated successfully",
+            "fields.ConsumerResponse.Status": "Success",
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/updateCaseStatus",
+                "/FiberConsumer/v1/Ordering/cc/updateCaseStatus"
+            ],
+            "fields.RequestVerb": [
+                "POST",
+                "POST"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "001Vt00000czfEsIAI",
+                "001Vt00000czfEsIAI"
+            ],
+            "fields.client.received.time": [
+                "1751845836050",
+                "1751845836050"
+            ],
+            "fields.client.sent.time": [
+                "1751845836158",
+                "1751845836158"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "152eb157538331ac",
+                "152eb157538331ac"
+            ],
+            "fields.x-b3-traceid": [
+                "ca17b80841f91750383073c634577f21",
+                "ca17b80841f91750383073c634577f21"
+            ],
+            "fields.x-correlation-id": [
+                "dcdd8e17-d3f1-453c-ce8e-049571d0021f",
+                "dcdd8e17-d3f1-453c-ce8e-049571d0021f"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-004b2b922da85bed8.qf.splunkcloud.com",
+            "timeendpos": "990",
+            "timestartpos": "979"
+        }
+    },
+    {
+        "preview": false,
+        "lastrow": true,
+        "result": {
+            "_raw": "{\n                \t\"event\":\"/runSoqlQuery\",\n                \t\"fields\":{\n                \t\t\"UserIP\": \"199.91.140.12\",\n                \t\t\"Client\": \"\",\n                \t\t\"Environment\": \"ext-prod\",\n                \t\t\"ClientAppName\": \"SNOW COM\",\n                \t\t\"TargetOrg\" : \"PROD\",\n                \t\t\"User-Agent\": \"ServiceNow/1.0\",\n                \t\t\"Request\": \"/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Account.IsInvoiced__c%2C%28Select%20id%2C%20Work_Type_Name__c%2C%20Status%20from%20Service_Appointments__r%29%2CACH_Failed__c%2CACH_Flow__c%20FROM%20order%20WHERE%20id%3D%27801Vt00000czGA5IAM%27\",\n                \t\t\"RequestVerb\": \"GET\",\n                \t\t\"StatusCode\": \"200\",\n                \t\t\"ErrorStatusCode\": \"\",\n                \t\t\"x-correlation-id\": \"7e96312a-01f3-4abd-a9c0-d9adf7355a08\",\n                \t\t\"sessionId\": \"\",\n                \t\t\"transactionId\": \"\",\n                \t\t\"accountId\": \"\",\n                    \"x-b3-spanid\": \"1532336195593624\",\n                \t\t\"x-b3-traceid\": \"\",\n                \t\t\"step\": \"\",\n                \t\t\"ErrorContent\": \"null\",\n                \t\t\"client.received.time\": 1751845835056,\n                \t\t\"client.sent.time\": 1751845835160,\n                \t\t\"ConsumerRequest\": \"null\",\n                \t\t\"ConsumerResponse\": {\"totalSize\":1,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"Order\",\"url\":\"/services/data/v58.0/sobjects/Order/801Vt00000czGA5IAM\"},\"Id\":\"801Vt00000czGA5IAM\",\"Account\":{\"attributes\":{\"type\":\"Account\",\"url\":\"/services/data/v58.0/sobjects/Account/001Vt00000czfEsIAI\"},\"IsInvoiced__c\":true},\"Service_Appointments__r\":{\"totalSize\":2,\"done\":true,\"records\":[{\"attributes\":{\"type\":\"ServiceAppointment\",\"url\":\"/services/data/v58.0/sobjects/ServiceAppointment/08pVt000006LZk6IAG\"},\"Id\":\"08pVt000006LZk6IAG\",\"Work_Type_Name__c\":\"QF Fiber Install - For Installations\",\"Status\":\"Canceled\"},{\"attributes\":{\"type\":\"ServiceAppointment\",\"url\":\"/services/data/v58.0/sobjects/ServiceAppointment/08pVt000006LiQnIAK\"},\"Id\":\"08pVt000006LiQnIAK\",\"Work_Type_Name__c\":\"QF Buried Drop Task\",\"Status\":\"Completed\"}]},\"ACH_Failed__c\":false,\"ACH_Flow__c\":false}]},\n                \t\t\"BackendRequest\": \"null\",\n                \t\t\"BackendResponse\": \"null\"\n                \t\t\n                \t}\n                }",
+            "_time": "2025-07-06T23:50:35.000+0000",
+            "date_hour": "23",
+            "date_mday": "6",
+            "date_minute": "50",
+            "date_month": "july",
+            "date_second": "35",
+            "date_wday": "sunday",
+            "date_year": "2025",
+            "date_zone": "0",
+            "event": [
+                "/runSoqlQuery",
+                "/runSoqlQuery"
+            ],
+            "fields.BackendRequest": [
+                "null",
+                "null"
+            ],
+            "fields.BackendResponse": [
+                "null",
+                "null"
+            ],
+            "fields.Client": [
+                "",
+                ""
+            ],
+            "fields.ClientAppName": [
+                "SNOW COM",
+                "SNOW COM"
+            ],
+            "fields.ConsumerRequest": [
+                "null",
+                "null"
+            ],
+            "fields.ConsumerResponse.done": [
+                "true",
+                "true"
+            ],
+            "fields.ConsumerResponse.records{}.ACH_Failed__c": "false",
+            "fields.ConsumerResponse.records{}.ACH_Flow__c": "false",
+            "fields.ConsumerResponse.records{}.Account.IsInvoiced__c": "true",
+            "fields.ConsumerResponse.records{}.Account.attributes.type": "Account",
+            "fields.ConsumerResponse.records{}.Account.attributes.url": "/services/data/v58.0/sobjects/Account/001Vt00000czfEsIAI",
+            "fields.ConsumerResponse.records{}.Id": [
+                "801Vt00000czGA5IAM",
+                "801Vt00000czGA5IAM"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.done": "true",
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.records{}.Id": [
+                "08pVt000006LZk6IAG",
+                "08pVt000006LiQnIAK"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.records{}.Status": [
+                "Canceled",
+                "Completed"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.records{}.Work_Type_Name__c": [
+                "QF Fiber Install - For Installations",
+                "QF Buried Drop Task"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.records{}.attributes.type": [
+                "ServiceAppointment",
+                "ServiceAppointment"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.records{}.attributes.url": [
+                "/services/data/v58.0/sobjects/ServiceAppointment/08pVt000006LZk6IAG",
+                "/services/data/v58.0/sobjects/ServiceAppointment/08pVt000006LiQnIAK"
+            ],
+            "fields.ConsumerResponse.records{}.Service_Appointments__r.totalSize": "2",
+            "fields.ConsumerResponse.records{}.attributes.type": [
+                "Order",
+                "Order"
+            ],
+            "fields.ConsumerResponse.records{}.attributes.url": [
+                "/services/data/v58.0/sobjects/Order/801Vt00000czGA5IAM",
+                "/services/data/v58.0/sobjects/Order/801Vt00000czGA5IAM"
+            ],
+            "fields.ConsumerResponse.totalSize": [
+                "1",
+                "1"
+            ],
+            "fields.Environment": [
+                "ext-prod",
+                "ext-prod"
+            ],
+            "fields.ErrorContent": [
+                "null",
+                "null"
+            ],
+            "fields.ErrorStatusCode": [
+                "",
+                ""
+            ],
+            "fields.Request": [
+                "/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Account.IsInvoiced__c%2C%28Select%20id%2C%20Work_Type_Name__c%2C%20Status%20from%20Service_Appointments__r%29%2CACH_Failed__c%2CACH_Flow__c%20FROM%20order%20WHERE%20id%3D%27801Vt00000czGA5IAM%27",
+                "/FiberConsumer/v1/Ordering/cc/runSoqlQuery?query=SELECT%20Id%2C%20Account.IsInvoiced__c%2C%28Select%20id%2C%20Work_Type_Name__c%2C%20Status%20from%20Service_Appointments__r%29%2CACH_Failed__c%2CACH_Flow__c%20FROM%20order%20WHERE%20id%3D%27801Vt00000czGA5IAM%27"
+            ],
+            "fields.RequestVerb": [
+                "GET",
+                "GET"
+            ],
+            "fields.StatusCode": [
+                "200",
+                "200"
+            ],
+            "fields.TargetOrg": [
+                "PROD",
+                "PROD"
+            ],
+            "fields.User-Agent": [
+                "ServiceNow/1.0",
+                "ServiceNow/1.0"
+            ],
+            "fields.UserIP": [
+                "199.91.140.12",
+                "199.91.140.12"
+            ],
+            "fields.accountId": [
+                "",
+                ""
+            ],
+            "fields.client.received.time": [
+                "1751845835056",
+                "1751845835056"
+            ],
+            "fields.client.sent.time": [
+                "1751845835160",
+                "1751845835160"
+            ],
+            "fields.sessionId": [
+                "",
+                ""
+            ],
+            "fields.step": [
+                "",
+                ""
+            ],
+            "fields.transactionId": [
+                "",
+                ""
+            ],
+            "fields.x-b3-spanid": [
+                "1532336195593624",
+                "1532336195593624"
+            ],
+            "fields.x-b3-traceid": [
+                "",
+                ""
+            ],
+            "fields.x-correlation-id": [
+                "7e96312a-01f3-4abd-a9c0-d9adf7355a08",
+                "7e96312a-01f3-4abd-a9c0-d9adf7355a08"
+            ],
+            "host": "http-inputs-qf.splunkcloud.com",
+            "index": "prod_apigee_index",
+            "linecount": "30",
+            "punct": "{________________t\"\":\"/\",________________t\"\":{____",
+            "source": "http:prod_apigee_event_collector",
+            "sourcetype": "prod_apigee_source",
+            "splunk_server": "idx-i-05dde6ae5885d0b1c.qf.splunkcloud.com",
+            "timeendpos": "1149",
+            "timestartpos": "1138"
+        }
+    }
+]

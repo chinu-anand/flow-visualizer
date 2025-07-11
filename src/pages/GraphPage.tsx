@@ -164,7 +164,7 @@ const GraphPage: React.FC = () => {
       </div>
       
       {selectedNode && (
-        <div className="w-1/3 border-l border-gray-200 flex flex-col max-h-full min-h-0">
+        <div className="w-1/3 border-l border-gray-200 flex flex-col max-h-full min-h-0 bg-gray-50 dark:bg-gray-900">
           <div className="p-4 border-b border-gray-200 flex justify-between items-center">
             <h2 className="text-lg font-semibold text-purple-800">Log Details</h2>
             <button 
@@ -197,124 +197,177 @@ const GraphPage: React.FC = () => {
           </div>
           <div className="flex-1 min-h-0 overflow-y-auto">
             {activeTab === 'overview' && (
-              <div className="p-4">
-                <div className="mb-4">
-                  <h3 className="text-md font-medium text-gray-700">Event</h3>
-                  <p className="text-gray-900">{selectedNode.data.event}</p>
+              <div className="p-4 flex flex-col gap-5">
+                {/* Event */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
+                  <span className="text-purple-700 dark:text-purple-400 text-xl">
+                    <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </span>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Event</h3>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">{selectedNode.data.event}</p>
+                  </div>
                 </div>
-                
-                <div className="mb-4">
-                  <h3 className="text-md font-medium text-gray-700">Client App</h3>
-                  <p className="text-gray-900">{selectedNode.data.clientAppName}</p>
+
+                {/* Client App */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
+                  <span className="text-blue-600 dark:text-blue-400 text-xl">
+                    <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></svg>
+                  </span>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Client App</h3>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">{selectedNode.data.clientAppName}</p>
+                  </div>
                 </div>
-                
-                <div className="mb-4">
-                  <h3 className="text-md font-medium text-gray-700">Status Code</h3>
-                  <p className={`font-medium ${
-                    selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 
-                      ? 'text-green-600' 
-                      : 'text-red-600'
-                  }`}>
-                    {selectedNode.data.statusCode}
-                  </p>
+
+                {/* Status Code & Latency */}
+                <div className="flex gap-4">
+                  <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
+                    <span className="text-green-600 dark:text-green-400 text-xl">
+                      <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M9 12l2 2l4-4" /></svg>
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Status Code</h3>
+                      <p className={`text-lg font-bold ${selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>{selectedNode.data.statusCode}</p>
+                    </div>
+                  </div>
+                  <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
+                    <span className="text-yellow-600 dark:text-yellow-400 text-xl">
+                      <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Latency</h3>
+                      <p className="text-lg font-bold text-yellow-600 dark:text-yellow-400">{selectedNode.data.latency} ms</p>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="mb-4">
-                  <h3 className="text-md font-medium text-gray-700">Latency</h3>
-                  <p className="text-gray-900">{selectedNode.data.latency} ms</p>
-                </div>
-                
+
                 {/* Request URL and Verb */}
                 {(selectedNode.data.fullLog?.Request || selectedNode.data.fullLog?.RequestVerb) && (
-                  <div className="mb-4">
-                    <h3 className="text-md font-medium text-gray-700">Request Details</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700 flex flex-col gap-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-indigo-600 dark:text-indigo-400 text-xl">
+                        <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 12h18" /><path d="M12 3v18" /></svg>
+                      </span>
+                      <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Request Details</h3>
+                    </div>
                     {selectedNode.data.fullLog?.RequestVerb && (
-                      <p className="text-gray-900 mt-1">
-                        <span className="font-medium">Method:</span> {selectedNode.data.fullLog.RequestVerb}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium">Method:</span>
+                        <span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-xs text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">{selectedNode.data.fullLog.RequestVerb}</span>
+                      </div>
                     )}
                     {selectedNode.data.fullLog?.Request && (
-                      <p className="text-gray-900 mt-1 break-all">
-                        <span className="font-medium">URL:</span> {selectedNode.data.fullLog.Request}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium">URL:</span>
+                        <span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-xs text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 break-all">
+                          {selectedNode.data.fullLog.Request}
+                        </span>
+                        <button
+                          onClick={() => copyToClipboard(selectedNode.data.fullLog.Request)}
+                          className="ml-2 bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2"
+                        >
+                          Copy
+                        </button>
+                      </div>
                     )}
                   </div>
                 )}
-                
+
                 {/* Consumer Request */}
                 {selectedNode.data.fullLog?.ConsumerRequest && (
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-md font-medium text-gray-700">Consumer Request</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-purple-700 dark:text-purple-400 text-xl">
+                          <i className="react-icons fi fi-rr-upload"></i>
+                        </span>
+                        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Consumer Request</h3>
+                      </div>
                       <button
                         onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerRequest)}
-                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2"
                       >
                         Copy
                       </button>
                     </div>
                     <div className="relative">
-                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                      <pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 dark:border-gray-700 mt-2">
                         {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerRequest)}
                       </pre>
                     </div>
                   </div>
                 )}
-                
+
                 {/* Consumer Response */}
                 {selectedNode.data.fullLog?.ConsumerResponse && (
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-md font-medium text-gray-700">Consumer Response</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-green-700 dark:text-green-400 text-xl">
+                          <i className="react-icons fi fi-rr-download"></i>
+                        </span>
+                        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Consumer Response</h3>
+                      </div>
                       <button
                         onClick={() => copyToClipboard(selectedNode.data.fullLog.ConsumerResponse)}
-                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2"
                       >
                         Copy
                       </button>
                     </div>
                     <div className="relative">
-                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                      <pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 dark:border-gray-700 mt-2">
                         {formatJsonForDisplay(selectedNode.data.fullLog.ConsumerResponse)}
                       </pre>
                     </div>
                   </div>
                 )}
-                
+
                 {/* Backend Request */}
                 {selectedNode.data.fullLog?.BackendRequest && selectedNode.data.fullLog.BackendRequest !== "null" && (
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-md font-medium text-gray-700">Backend Request</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-indigo-700 dark:text-indigo-400 text-xl">
+                          <i className="react-icons fi fi-rr-upload"></i>
+                        </span>
+                        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Backend Request</h3>
+                      </div>
                       <button
                         onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendRequest)}
-                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2"
                       >
                         Copy
                       </button>
                     </div>
                     <div className="relative">
-                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                      <pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 dark:border-gray-700 mt-2">
                         {formatJsonForDisplay(selectedNode.data.fullLog.BackendRequest)}
                       </pre>
                     </div>
                   </div>
                 )}
-                
+
                 {/* Backend Response */}
                 {selectedNode.data.fullLog?.BackendResponse && selectedNode.data.fullLog.BackendResponse !== "null" && (
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-md font-medium text-gray-700">Backend Response</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-green-700 dark:text-green-400 text-xl">
+                          <i className="react-icons fi fi-rr-download"></i>
+                        </span>
+                        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Backend Response</h3>
+                      </div>
                       <button
                         onClick={() => copyToClipboard(selectedNode.data.fullLog.BackendResponse)}
-                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors"
+                        className="bg-purple-800 text-white px-2 py-1 rounded text-xs hover:bg-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2"
                       >
                         Copy
                       </button>
                     </div>
                     <div className="relative">
-                      <pre className="bg-gray-50 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 mt-2">
+                      <pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 dark:border-gray-700 mt-2">
                         {formatJsonForDisplay(selectedNode.data.fullLog.BackendResponse)}
                       </pre>
                     </div>

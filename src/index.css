@@ -15,3 +15,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.dark .bg-purple-800 {
+  @apply bg-gray-800;
+}
+
+.dark .text-white {
+  @apply text-gray-100;
+}
+
+.dark .bg-white {
+  @apply bg-gray-900;
+}
+
+.dark .text-purple-800 {
+  @apply text-purple-300;
+}
+
+.dark .bg-purple-50 {
+  @apply bg-gray-800;
+}
+
+.dark .text-purple-200 {
+  @apply text-gray-400;
+}

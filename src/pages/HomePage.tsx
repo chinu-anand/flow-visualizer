@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../components/ui/select';
+import { Search } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -25,87 +31,97 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-[80vh] pt-12">
-      <div className="w-full max-w-4xl">
-        <h1 className="text-3xl font-bold text-center text-purple-800 mb-2">
-          Search Orders
-        </h1>
-        
-        <p className="text-gray-600 mb-10 text-center">
-          Find and visualize order logs across Quantum Fiber services
-        </p>
-        
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="flex flex-wrap items-end gap-4">
-            {/* Search Type Dropdown */}
-            <div className="w-48">
-              <label htmlFor="searchType" className="block text-sm font-medium text-gray-700 mb-1">
-                Search By
-              </label>
-              <select
-                id="searchType"
-                value={searchType}
-                onChange={(e) => setSearchType(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
-              >
-                <option value="accountId">Account ID</option>
-                <option value="traceId">Trace ID</option>
-                <option value="correlationId">X-Correlation-ID</option>
-              </select>
-            </div>
-            
-            {/* Search Input */}
-            <div className="flex-grow">
-              <label htmlFor="searchValue" className="block text-sm font-medium text-gray-700 mb-1">
-                {searchType === 'accountId' ? 'Account ID' : searchType === 'traceId' ? 'Trace ID' : 'X-Correlation-ID'}
-              </label>
-              <input
-                type="text"
-                id="searchValue"
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder={`Enter ${searchType === 'accountId' ? 'account ID' : searchType === 'traceId' ? 'trace ID' : 'correlation ID'}`}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-800"
-              />
-            </div>
-            
-            {/* Time Range Dropdown */}
-            <div className="w-36">
-              <label htmlFor="timeRange" className="block text-sm font-medium text-gray-700 mb-1">
-                Time Range
-              </label>
-              <select
-                id="timeRange"
-                value={timeRange}
-                onChange={(e) => setTimeRange(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
-              >
-                <option value="1hr">1 Hour</option>
-                <option value="6hr">6 Hours</option>
-                <option value="24hr">24 Hours</option>
-                <option value="3days">3 Days</option>
-                <option value="7days">7 Days</option>
-              </select>
-            </div>
-            
-            {/* Search Button */}
-            <div>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="px-6 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2 disabled:opacity-50 transition-colors"
-              >
-                {isLoading ? 'Loading...' : 'Search'}
-              </button>
-            </div>
-          </div>
+    <div className="flex flex-col w-full min-h-[80vh]">
+      <div className="w-full px-4">
+        <Card className="border-none shadow-md max-w-6xl mx-auto">
+          <CardHeader className="text-center">
+            <CardTitle className="text-3xl font-bold text-primary">Search Orders</CardTitle>
+            <CardDescription>
+              Find and visualize order logs across Quantum Fiber services
+            </CardDescription>
+          </CardHeader>
           
-          {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
-        </form>
-        
-        <div className="mt-16 text-center text-sm text-gray-500">
-          <p>For internal debugging and troubleshooting purposes only</p>
-        </div>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                {/* Search Type Dropdown */}
+                <div className="md:col-span-3">
+                  <label htmlFor="searchType" className="text-sm font-medium mb-2 block">
+                    Search By
+                  </label>
+                  <Select 
+                    value={searchType} 
+                    onValueChange={(value) => setSearchType(value as 'accountId' | 'traceId' | 'correlationId')}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select search type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="accountId">Account ID</SelectItem>
+                      <SelectItem value="traceId">Trace ID</SelectItem>
+                      <SelectItem value="correlationId">X-Correlation-ID</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                {/* Search Input */}
+                <div className="md:col-span-5">
+                  <label htmlFor="searchValue" className="text-sm font-medium mb-2 block">
+                    {searchType === 'accountId' ? 'Account ID' : searchType === 'traceId' ? 'Trace ID' : 'X-Correlation-ID'}
+                  </label>
+                  <Input
+                    id="searchValue"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    placeholder={`Enter ${searchType === 'accountId' ? 'account ID' : searchType === 'traceId' ? 'trace ID' : 'correlation ID'}`}
+                  />
+                </div>
+                
+                {/* Time Range Dropdown */}
+                <div className="md:col-span-2">
+                  <label htmlFor="timeRange" className="text-sm font-medium mb-2 block">
+                    Time Range
+                  </label>
+                  <Select 
+                    value={timeRange} 
+                    onValueChange={(value) => setTimeRange(value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select time range" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1hr">Last 1 hour</SelectItem>
+                      <SelectItem value="6hr">Last 6 hours</SelectItem>
+                      <SelectItem value="24hr">Last 24 hours</SelectItem>
+                      <SelectItem value="3days">Last 3 days</SelectItem>
+                      <SelectItem value="7days">Last 7 days</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                {/* Search Button */}
+                <div className="md:col-span-2 flex items-end">
+                  <Button 
+                    type="submit" 
+                    disabled={isLoading} 
+                    className="w-full"
+                  >
+                    <Search className="mr-2 h-4 w-4" />
+                    {isLoading ? 'Loading...' : 'Search'}
+                  </Button>
+                </div>
+              </div>
+              
+              {error && <p className="mt-4 text-sm text-destructive">{error}</p>}
+            </form>
+          </CardContent>
+          
+          <CardFooter className="justify-center border-t pt-4">
+            <p className="text-sm text-muted-foreground">
+              For internal debugging and troubleshooting purposes only
+            </p>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   );

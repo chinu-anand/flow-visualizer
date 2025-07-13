@@ -27,6 +27,15 @@ const graphDataCache: Record<string, GraphData> = {};
 const clusterCache: Record<string, Cluster[]> = {};
 
 // API service
+// Interface for trace ID results - must match the TraceId interface in TraceIdsPage
+interface TraceId {
+  id: string;
+  timestamp: string;
+  clientAppName: string;
+  status: string;
+  event?: string;
+}
+
 const api = {
   getEvents: async (searchValue: string, searchType: string = 'accountId', timeRange: string = '24hr'): Promise<Event[]> => {
     try {
@@ -105,6 +114,44 @@ const api = {
     } catch (error) {
       console.error('Error fetching clusters:', error);
       throw new Error('Failed to fetch clusters. Please try again.');
+    }
+  },
+  
+  getTraceIds: async (searchValue: string, searchType: string = 'accountId', timeRange: string = '24hr'): Promise<TraceId[]> => {
+    try {
+      if (USE_REAL_SPLUNK) {
+        // Use real Splunk API
+        const splunkResults = await splunkService.getTraceData(searchValue, searchType, timeRange);
+        
+        // Parse the results to get unique trace IDs
+        const traceIds = parseTraceIds(splunkResults);
+        
+        // Convert to the expected format - match the TraceId interface
+        return traceIds.map(trace => ({
+          id: trace.id,
+          timestamp: trace.timestamp,
+          clientAppName: trace.clientAppName,
+          status: trace.status as string,
+          event: trace.event
+        }));
+      } else {
+        // Use test data for development
+        console.log(`[DEV] Fetching trace IDs for ${searchValue} by ${searchType} in the last ${timeRange}`);
+        
+        // Get unique trace IDs from test data
+        const traceIds = parseTraceIds(testSplunkData);
+        
+        return traceIds.map(trace => ({
+          id: trace.id,
+          timestamp: trace.timestamp,
+          clientAppName: trace.clientAppName,
+          status: trace.status as string,
+          event: trace.event
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching trace IDs:', error);
+      throw new Error('Failed to fetch trace IDs. Please try again.');
     }
   },
   

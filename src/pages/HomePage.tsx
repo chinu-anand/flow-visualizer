@@ -8,6 +8,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '.
 import { Checkbox } from '../components/ui/checkbox';
 import { Label } from '../components/ui/label';
 import { Search, Clock } from 'lucide-react';
+import { SelectGroup, SelectLabel } from '@radix-ui/react-select';
 
 const HomePage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
   const [useTimeClustering, setUseTimeClustering] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [environment, setEnvironment] = useState('prod');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,9 +33,9 @@ const HomePage: React.FC = () => {
     
     // Navigate to the appropriate page based on clustering choice
     if (useTimeClustering) {
-      navigate(`/clusters?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}`);
+      navigate(`/clusters?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}&environment=${encodeURIComponent(environment)}`);
     } else {
-      navigate(`/traceids?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}`);
+      navigate(`/traceids?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}&environment=${encodeURIComponent(environment)}`);
     }
   };
 
@@ -51,8 +53,38 @@ const HomePage: React.FC = () => {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                {/* Environment Selection Dropdown */}
+                <div className="md:col-span-2">
+                  <label htmlFor="environment" className="text-sm font-medium mb-2 block">
+                    Environment
+                  </label>
+                  <Select 
+                    value={environment} 
+                    onValueChange={(value) => setEnvironment(value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select environment" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Production</SelectLabel>
+                        <SelectItem value="prod">PROD</SelectItem>
+                      </SelectGroup>
+                      <SelectGroup>
+                        <SelectLabel>Staging</SelectLabel>
+                        <SelectItem value="stage">STAGING</SelectItem>
+                      </SelectGroup>
+                      <SelectGroup>
+                        <SelectLabel>Test</SelectLabel>
+                        <SelectItem value="test">TEST1</SelectItem>
+                        <SelectItem value="test2">TEST2</SelectItem>
+                        <SelectItem value="test3">TEST4</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
                 {/* Search Type Dropdown */}
-                <div className="md:col-span-3">
+                <div className="md:col-span-2">
                   <label htmlFor="searchType" className="text-sm font-medium mb-2 block">
                     Search By
                   </label>
@@ -65,14 +97,14 @@ const HomePage: React.FC = () => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="accountId">Account ID</SelectItem>
-                      <SelectItem value="traceId">Trace ID</SelectItem>
-                      <SelectItem value="correlationId">X-Correlation-ID</SelectItem>
+                      {/* <SelectItem value="traceId">Trace ID</SelectItem>
+                      <SelectItem value="correlationId">X-Correlation-ID</SelectItem> */}
                     </SelectContent>
                   </Select>
                 </div>
                 
                 {/* Search Input */}
-                <div className="md:col-span-5">
+                <div className="md:col-span-4">
                   <label htmlFor="searchValue" className="text-sm font-medium mb-2 block">
                     {searchType === 'accountId' ? 'Account ID' : searchType === 'traceId' ? 'Trace ID' : 'X-Correlation-ID'}
                   </label>

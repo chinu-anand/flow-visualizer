@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
-import { Copy, X, Zap, Globe, Clock, CheckCircle, ArrowDownUp, Server, LucideFileJson } from 'lucide-react';
+import { Copy, X, Zap, Globe, Clock, CheckCircle, ArrowDownUp, Server, LucideFileJson, Database } from 'lucide-react';
 import { Node as FlowNode } from 'reactflow';
+import { format } from 'sql-formatter';
 
 interface LogViewerProps {
 	selectedNode: FlowNode;
@@ -39,19 +40,51 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 		}
 	};
 
+	// Function to format SQL using the sql-formatter library
+	const formatSql = (sql: string) => {
+		try {
+			// Use the sql-formatter library to format the SQL query with minimal options
+			// This should work with any version of sql-formatter
+			return format(sql);
+		} catch (error) {
+			console.error('Error using sql-formatter:', error);
+			// Fallback to simple formatting if the library fails
+			return sql
+				.replace(/\s+/g, ' ')
+				.replace(/SELECT/gi, 'SELECT\n  ')
+				.replace(/FROM/gi, '\nFROM\n  ')
+				.replace(/WHERE/gi, '\nWHERE\n  ')
+				.replace(/,/g, ',\n  ');
+		}
+	};
+
+	// Extract and format SQL query from URL using sql-formatter
+	const extractedSqlQuery = useMemo(() => {
+		const requestPath = selectedNode.data.fullLog?.Request;
+		const requestVerb = selectedNode.data.fullLog?.RequestVerb;
+		
+		// Only process if it's a GET request and contains a query parameter
+		if (requestVerb === 'GET' && requestPath && requestPath.includes('?query=')) {
+			try {
+				// Extract the query parameter
+				const queryParamMatch = requestPath.match(/\?query=([^&]+)/);
+				if (queryParamMatch && queryParamMatch[1]) {
+					// Decode the URL-encoded query
+					const decodedQuery = decodeURIComponent(queryParamMatch[1]);
+					
+					// Format the SQL query using our formatter function
+					return formatSql(decodedQuery);
+				}
+			} catch (error) {
+				console.error('Error formatting SQL query:', error);
+				return null;
+			}
+		}
+		return null;
+	}, [selectedNode.data.fullLog?.Request, selectedNode.data.fullLog?.RequestVerb]);
+
 	return (
 		<Card className="border-0 rounded-none h-full">
-			<CardHeader className="pb-2 flex flex-row items-center justify-between space-y-0">
-				<CardTitle className="text-lg font-semibold">Log Details</CardTitle>
-				<Button
-					variant="ghost"
-					size="icon"
-					onClick={onClose}
-					className="h-8 w-8"
-				>
-					<X className="h-5 w-5" />
-				</Button>
-			</CardHeader>
 			<CardContent className="p-0">
 				<Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as 'overview' | 'raw')} className="w-full">
 					<TabsList className="grid w-full grid-cols-2">
@@ -161,6 +194,32 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 											</span>
 										</div>
 									)}
+								</div>
+							</div>
+						)}
+
+						{/* SQL Query Card - Only shown for GET requests with SQL queries */}
+						{extractedSqlQuery && (
+							<div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+								<div className="flex items-center justify-between mb-3">
+									<div className="flex items-center gap-2">
+										<span className="text-blue-600 dark:text-blue-400 text-xl">
+											<Database className="h-5 w-5" />
+										</span>
+										<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">SQL Query</h3>
+									</div>
+									<Button
+										onClick={() => copyToClipboard(extractedSqlQuery)}
+										size="sm"
+										variant="outline"
+									>
+										<Copy className="h-3 w-3 mr-1" /> Copy
+									</Button>
+								</div>
+								<div className="relative">
+									<pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-xs overflow-x-auto border border-gray-200 dark:border-gray-700 mt-2 dark:text-gray-200 text-gray-800">
+										{extractedSqlQuery}
+									</pre>
 								</div>
 							</div>
 						)}

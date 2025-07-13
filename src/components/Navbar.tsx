@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
                 variant={location.pathname === '/' ? "secondary" : "ghost"}
                 className={cn(
                   "gap-2",
-                  location.pathname !== '/' && "text-primary-foreground hover:text-primary-foreground hover:bg-primary/80"
+                  location.pathname !== '/' && "text-primary-foreground hover:bg-background/80"
                 )}
               >
                 <Home className="h-4 w-4" /> Home
@@ -33,36 +33,36 @@ const Navbar: React.FC = () => {
             </Link>
             
             {location.pathname === '/traceids' && (
-              <Button variant="ghost" className="gap-2 text-primary-foreground hover:text-primary-foreground hover:bg-primary/80" disabled>
+              <Button variant="ghost" className="gap-2 text-primary-foreground hover:bg-background/80" disabled>
                 <List className="h-4 w-4" /> Trace IDs
               </Button>
             )}
             
             {location.pathname === '/graph' && (
-              <Button variant="ghost" className="gap-2 text-primary-foreground hover:text-primary-foreground hover:bg-primary/80" disabled>
+              <Button variant="ghost" className="gap-2 text-primary-foreground hover:bg-background/80" disabled>
                 <Network className="h-4 w-4" /> Graph View
               </Button>
             )}
             
             {location.pathname === '/clusters' && (
-              <Button variant="ghost" className="gap-2 text-primary-foreground hover:text-primary-foreground hover:bg-primary/80" disabled>
+              <Button variant="ghost" className="gap-2 text-primary-foreground hover:bg-background/80" disabled>
                 <Clock className="h-4 w-4" /> Time Clusters
               </Button>
             )}
             
             {/* Dark mode toggle button */}
-            {/* <Button 
+            <Button 
               variant="ghost" 
               size="icon" 
               onClick={toggleDarkMode}
-              className="text-primary-foreground hover:text-primary-foreground hover:bg-primary/80"
+              className="text-primary-foreground hover:bg-background/80"
             >
               {isDarkMode ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
-            </Button> */}
+            </Button>
           </div>
         </div>
       </div>

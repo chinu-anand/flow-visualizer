@@ -1,4 +1,4 @@
-import { TraceId, GraphData, Node, Edge } from '../types';
+import { TraceId, GraphData, Node, Edge, Cluster, Event } from '../types/index';
 import { JsonFixer } from './JsonFixer';
 
 /**
@@ -83,7 +83,7 @@ export const generateGraphData = (splunkData: any[], traceId: string): GraphData
     const sentTime = fields["client.sent.time"];
     const latency = receivedTime && sentTime ? sentTime - receivedTime : Math.floor(Math.random() * 200) + 20;
 
-    // Create node
+    // Create node with vertical positioning
     nodes.push({
       id: nodeId,
       data: {
@@ -93,15 +93,10 @@ export const generateGraphData = (splunkData: any[], traceId: string): GraphData
         latency,
         event,
         fullLog: {
-          ...fields,
-          timestamp,
-          event,
-          clientAppName,
-          statusCode,
-          latency
+          ...fields
         }
       },
-      position: { x: 250, y: (index + 1) * 100 },
+      position: { x: 400, y: 150 + (index * 200) }, // Vertical positioning with more space
       type: 'eventNode'
     });
 
@@ -126,14 +121,132 @@ export const generateGraphData = (splunkData: any[], traceId: string): GraphData
         latency: 0,
         event: 'NO_DATA',
         fullLog: {
-          message: 'No data available for this trace ID',
-          timestamp: new Date().toISOString()
+          message: 'No data available for this trace ID'
         }
       },
-      position: { x: 250, y: 100 },
+      position: { x: 400, y: 150 }, // Consistent with other nodes
       type: 'eventNode'
     });
   }
 
+  return { nodes, edges };
+};
+
+/**
+ * Generates graph data for a time-based cluster using the same splunkData
+ * @param splunkData The raw Splunk JSON data
+ * @param timeWindowMs The time window in milliseconds for clustering
+ * @param startTime Optional start time for filtering
+ * @returns GraphData object with nodes and edges
+ */
+export const generateTimeClusterGraphData = (splunkData: any[], timeWindowMs: number = 300000, startTime?: string): GraphData => {
+  // Extract all events from splunkData
+  const allEvents = splunkData.map(item => {
+    // Handle null/undefined item
+    if (!item || !item.result) {
+      return null;
+    }
+    
+    try {
+      const raw = item.result._raw ? JsonFixer.fix(item.result._raw) : {};
+      const fields = raw.fields || {};
+      
+      // Extract the same data as in generateGraphData
+      const event = item.result.event?.[0] || fields.event || "Unknown Event";
+      const clientAppName = item.result['fields.ClientAppName']?.[0] || fields.ClientAppName || "Unknown App";
+      const statusCode = parseInt(item.result['fields.StatusCode']?.[0] || fields.StatusCode || "200");
+      const timestamp = item.result._time || new Date().toISOString();
+      const traceId = item.result['fields.x-b3-traceid']?.[0] || fields['x-b3-traceid'] || '';
+      
+      return {
+        event,
+        clientAppName,
+        statusCode,
+        timestamp,
+        traceId,
+        fields
+      };
+    } catch (error) {
+      console.error('Error processing item:', error);
+      return null;
+    }
+  }).filter(item => item !== null); // Remove any null items
+  
+  // Filter by start time and time window if provided
+  const filteredEvents = startTime 
+    ? allEvents.filter(e => {
+        if (!e) return false;
+        const eventTime = new Date(e.timestamp).getTime();
+        const startTimeMs = new Date(startTime).getTime();
+        const endTimeMs = startTimeMs + timeWindowMs;
+        // Only include events within the time window
+        return eventTime >= startTimeMs && eventTime <= endTimeMs;
+      })
+    : allEvents;
+  
+  // Sort events by timestamp
+  const sortedEvents = [...filteredEvents].sort((a, b) => {
+    if (!a || !b) return 0;
+    return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime();
+  });
+  
+  const nodes: Node[] = [];
+  const edges: Edge[] = [];
+  
+  // Create nodes for each event - exactly like in generateGraphData
+  sortedEvents.forEach((item, index) => {
+    const nodeId = `node-${index + 1}`;
+    
+    // Calculate a mock latency based on the timestamp if available
+    const receivedTime = item?.fields ? item.fields["client.received.time"] : null;
+    const sentTime = item?.fields ? item.fields["client.sent.time"] : null;
+    const latency = receivedTime && sentTime ? sentTime - receivedTime : Math.floor(Math.random() * 200) + 20;
+    
+    // Create node with vertical positioning
+    nodes.push({
+      id: nodeId,
+      data: {
+        label: item?.event,
+        clientAppName: item?.clientAppName,
+        statusCode: item?.statusCode,
+        latency,
+        event: item?.event,
+        fullLog: {
+          ...item?.fields
+        }
+      },
+      position: { x: 400, y: 150 + (index * 200) }, // Vertical positioning with more space
+      type: 'eventNode'
+    });
+    
+    // Create edge to previous node if not the first node
+    if (index > 0) {
+      edges.push({
+        id: `edge-${index}-${index + 1}`,
+        source: `node-${index}`,
+        target: nodeId
+      });
+    }
+  });
+  
+  // If no nodes were created, create a placeholder node
+  if (nodes.length === 0) {
+    nodes.push({
+      id: 'node-1',
+      data: {
+        label: 'No Data Available',
+        clientAppName: 'Unknown',
+        statusCode: 404,
+        latency: 0,
+        event: 'NO_DATA',
+        fullLog: {
+          message: 'No data available for this time window'
+        }
+      },
+      position: { x: 400, y: 150 }, // Consistent with other nodes
+      type: 'eventNode'
+    });
+  }
+  
   return { nodes, edges };
 };

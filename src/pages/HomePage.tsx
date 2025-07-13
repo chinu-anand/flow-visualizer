@@ -5,12 +5,15 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../components/ui/select';
-import { Search } from 'lucide-react';
+import { Checkbox } from '../components/ui/checkbox';
+import { Label } from '../components/ui/label';
+import { Search, Clock } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
   const [searchType, setSearchType] = useState('accountId');
   const [timeRange, setTimeRange] = useState('24hr');
+  const [useTimeClustering, setUseTimeClustering] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -26,8 +29,12 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
     setError('');
     
-    // Navigate to the trace IDs page with the appropriate query parameter
-    navigate(`/traceids?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}`);
+    // Navigate to the appropriate page based on clustering choice
+    if (useTimeClustering) {
+      navigate(`/clusters?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}`);
+    } else {
+      navigate(`/traceids?${searchType}=${encodeURIComponent(searchValue)}&timeRange=${encodeURIComponent(timeRange)}`);
+    }
   };
 
   return (
@@ -112,7 +119,23 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
               
-              {error && <p className="mt-4 text-sm text-destructive">{error}</p>}
+              <div className="md:col-span-12 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="flex items-center space-x-2">
+                  <Checkbox 
+                    id="time-clustering" 
+                    checked={useTimeClustering} 
+                    onCheckedChange={(checked) => setUseTimeClustering(checked === true)}
+                  />
+                  <Label 
+                    htmlFor="time-clustering"
+                    className="flex items-center gap-1 text-sm font-medium cursor-pointer"
+                  >
+                    <Clock className="h-4 w-4 text-muted-foreground" />
+                    Use time-based clustering
+                  </Label>
+                </div>
+                {error && <p className="text-sm text-destructive">{error}</p>}
+              </div>
             </form>
           </CardContent>
           

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
-import { Home, Moon, Sun, Network, List } from 'lucide-react';
+import { Home, Moon, Sun, Network, List, Clock } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '../lib/utils';
 
@@ -41,6 +41,12 @@ const Navbar: React.FC = () => {
             {location.pathname === '/graph' && (
               <Button variant="ghost" className="gap-2 text-primary-foreground hover:text-primary-foreground hover:bg-primary/80" disabled>
                 <Network className="h-4 w-4" /> Graph View
+              </Button>
+            )}
+            
+            {location.pathname === '/clusters' && (
+              <Button variant="ghost" className="gap-2 text-primary-foreground hover:text-primary-foreground hover:bg-primary/80" disabled>
+                <Clock className="h-4 w-4" /> Time Clusters
               </Button>
             )}
             

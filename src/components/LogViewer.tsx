@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
-import { Copy, X } from 'lucide-react';
+import { Copy, X, Zap, Globe, Clock, CheckCircle, ArrowDownUp, Server, LucideFileJson } from 'lucide-react';
 import { Node as FlowNode } from 'reactflow';
 
 interface LogViewerProps {
@@ -63,22 +63,22 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 						{/* Event */}
 						<div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
 							<span className="text-purple-700 dark:text-purple-400 text-xl">
-								<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+								<Zap className="h-5 w-5" />
 							</span>
 							<div className="flex flex-col gap-1">
 								<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Event</h3>
-								<p className="text-lg font-medium text-gray-900 dark:text-white">{selectedNode.data.event}</p>
+								<p className="text-base font-medium text-gray-900 dark:text-white">{selectedNode.data.event}</p>
 							</div>
 						</div>
 
 						{/* Client App */}
 						<div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
 							<span className="text-blue-600 dark:text-blue-400 text-xl">
-								<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /></svg>
+								<Globe className="h-5 w-5" />
 							</span>
 							<div className="flex flex-col gap-1">
 								<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Client App</h3>
-								<p className="text-lg font-medium text-gray-900 dark:text-white">{selectedNode.data.clientAppName}</p>
+								<p className="text-base font-medium text-gray-900 dark:text-white">{selectedNode.data.clientAppName}</p>
 							</div>
 						</div>
 
@@ -86,55 +86,82 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 						<div className="flex gap-4">
 							<div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
 								<span className="text-green-600 dark:text-green-400 text-xl">
-									<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M9 12l2 2l4-4" /></svg>
+									<CheckCircle className="h-5 w-5" />
 								</span>
 								<div className="flex flex-col gap-1">
 									<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Status Code</h3>
-									<p className={`text-lg font-bold ${selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>{selectedNode.data.statusCode}</p>
+									<p className={`text-base font-bold ${selectedNode.data.statusCode >= 200 && selectedNode.data.statusCode < 300 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>{selectedNode.data.statusCode}</p>
 								</div>
 							</div>
 							<div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 flex items-center gap-4 border border-gray-100 dark:border-gray-700">
 								<span className="text-yellow-600 dark:text-yellow-400 text-xl">
-									<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+									<Clock className="h-5 w-5" />
 								</span>
 								<div className="flex flex-col gap-1">
 									<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Latency</h3>
-									<p className="text-lg font-bold text-yellow-600 dark:text-yellow-400">{selectedNode.data.latency} ms</p>
+									<p className="text-base font-bold text-yellow-600 dark:text-yellow-400">{selectedNode.data.latency} ms</p>
 								</div>
 							</div>
 						</div>
 
 						{/* Request URL and Verb */}
-						{(selectedNode.data.fullLog?.Request || selectedNode.data.fullLog?.RequestVerb) && (
-							<div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700 flex flex-col gap-2">
-								<div className="flex items-center gap-2 mb-1">
-									<span className="text-indigo-600 dark:text-indigo-400 text-xl">
-										<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 12h18" /><path d="M12 3v18" /></svg>
-									</span>
-									<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Request Details</h3>
-								</div>
-								{selectedNode.data.fullLog?.RequestVerb && (
+						{(selectedNode.data.fullLog?.Request || selectedNode.data.fullLog?.RequestVerb || selectedNode.data.fullLog?.RequestPath) && (
+							<div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-sm p-4 border border-gray-100 dark:border-gray-700">
+								<div className="flex items-center justify-between mb-3">
 									<div className="flex items-center gap-2">
-										<span className="font-medium">Method:</span>
-										<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-xs text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">{selectedNode.data.fullLog.RequestVerb}</span>
-									</div>
-								)}
-								{selectedNode.data.fullLog?.Request && (
-									<div className="flex items-center gap-2">
-										<span className="font-medium">URL:</span>
-										<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-xs text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 break-all">
-											{selectedNode.data.fullLog.Request}
+										<span className="text-indigo-600 dark:text-indigo-400 text-xl">
+											<ArrowDownUp className="h-5 w-5" />
 										</span>
+										<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Request Details</h3>
+									</div>
+									{selectedNode.data.fullLog?.Request && (
 										<Button
 											onClick={() => copyToClipboard(selectedNode.data.fullLog.Request)}
 											size="sm"
 											variant="outline"
-											className="ml-2"
 										>
 											<Copy className="h-3 w-3 mr-1" /> Copy
 										</Button>
-									</div>
-								)}
+									)}
+								</div>
+								
+								<div className="space-y-3">
+									{selectedNode.data.fullLog?.RequestVerb && (
+										<div className="flex flex-col gap-1">
+											<span className="text-xs font-medium text-gray-500 dark:text-gray-400">Method</span>
+											<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+												{selectedNode.data.fullLog.RequestVerb}
+											</span>
+										</div>
+									)}
+									
+									{selectedNode.data.fullLog?.RequestPath && (
+										<div className="flex flex-col gap-1">
+											<span className="text-xs font-medium text-gray-500 dark:text-gray-400">Path</span>
+											<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 break-all">
+												{selectedNode.data.fullLog.RequestPath}
+											</span>
+										</div>
+									)}
+									
+									{selectedNode.data.fullLog?.RequestHost && (
+										<div className="flex flex-col gap-1">
+											<span className="text-xs font-medium text-gray-500 dark:text-gray-400">Host</span>
+											<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 break-all">
+												{selectedNode.data.fullLog.RequestHost}
+											</span>
+										</div>
+									)}
+									
+									{selectedNode.data.fullLog?.Request && (
+										<div className="flex flex-col gap-1">
+											<span className="text-xs font-medium text-gray-500 dark:text-gray-400">Full URL</span>
+											<span className="font-mono bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 break-all">
+												{selectedNode.data.fullLog.Request}
+											</span>
+										</div>
+									)}
+								</div>
 							</div>
 						)}
 
@@ -144,7 +171,7 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 								<div className="flex justify-between items-center mb-2">
 									<div className="flex items-center gap-2">
 										<span className="text-purple-700 dark:text-purple-400 text-xl">
-											<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg>
+											<Server className="h-5 w-5" />
 										</span>
 										<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Consumer Request</h3>
 									</div>
@@ -170,7 +197,7 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 								<div className="flex justify-between items-center mb-2">
 									<div className="flex items-center gap-2">
 										<span className="text-green-700 dark:text-green-400 text-xl">
-											<svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+											<LucideFileJson className="h-5 w-5" />
 										</span>
 										<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Consumer Response</h3>
 									</div>

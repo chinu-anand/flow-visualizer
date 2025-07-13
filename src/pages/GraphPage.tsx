@@ -32,9 +32,14 @@ const GraphPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get traceId from URL query parameters
+  // Get parameters from URL query parameters
   const queryParams = new URLSearchParams(location.search);
   const traceId = queryParams.get('traceId');
+  const startTime = queryParams.get('startTime');
+  const isCluster = queryParams.get('isCluster') === 'true';
+  
+  // Determine which ID to use - for clusters, we'll use the startTime as the ID
+  const id = isCluster ? (startTime || 'time-cluster') : traceId;
 
   // Handle node click to show details in sidebar
   const onNodeClick = useCallback((event: React.MouseEvent, node: FlowNode) => {
@@ -48,21 +53,22 @@ const GraphPage: React.FC = () => {
 
   useEffect(() => {
     const fetchGraphData = async () => {
-      if (!traceId) {
-        setError('No Trace ID provided');
+      if (!id) {
+        setError('No ID provided');
         setLoading(false);
         return;
       }
 
       try {
         setLoading(true);
-        const data = await api.getGraphData(traceId);
+        const data = await api.getGraphData(id, isCluster);
 
-        // Transform data for React Flow - adjust positions for horizontal layout
-        const horizontalNodes = data.nodes.map((node, index) => ({
+        // Transform data for React Flow - use consistent layout for both views
+        const horizontalNodes = data.nodes.map((node) => ({
           ...node,
-          // Add left margin to the first node for better appearance
-          position: { x: 100 + index * 500, y: 200 },
+          // Use the positions provided by the API for both trace and cluster views
+          // This ensures consistency between both views
+          position: node.position || { x: 100, y: 200 },
           draggable: false // Lock nodes in place
         }));
 
@@ -78,7 +84,7 @@ const GraphPage: React.FC = () => {
     };
 
     fetchGraphData();
-  }, [traceId, setNodes, setEdges]);
+  }, [id, isCluster, setNodes, setEdges]);
 
   if (loading) {
     return (
@@ -114,7 +120,7 @@ const GraphPage: React.FC = () => {
             Order Flow Visualization
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Trace ID: <span className="font-medium">{traceId}</span>
+            {isCluster ? 'Cluster' : 'Trace'} ID: <span className="font-medium">{id}</span>
           </p>
         </div>
 
@@ -128,10 +134,11 @@ const GraphPage: React.FC = () => {
               onNodeClick={onNodeClick}
               nodeTypes={nodeTypes}
               fitView={false}
-              fitViewOptions={{ padding: 0.1, maxZoom: 0.8 }}
-              defaultViewport={{ x: 0, y: 0, zoom: 0.8 }}
+              fitViewOptions={{ padding: 0.1, maxZoom: 1.2 }}
+              defaultViewport={{ x: 0, y: 0, zoom: 1 }}
               nodesDraggable={false}
               attributionPosition="bottom-right"
+              defaultEdgeOptions={{ type: 'smoothstep', animated: true, style: { strokeWidth: 2 } }}
             >
               <Controls />
               <MiniMap />

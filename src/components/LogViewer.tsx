@@ -67,7 +67,7 @@ const LogViewer: React.FC<LogViewerProps> = ({ selectedNode, onClose }) => {
 							</span>
 							<div className="flex flex-col gap-1">
 								<h3 className="text-sm font-semibold text-gray-500 dark:text-gray-300">Event</h3>
-								<p className="text-base font-medium text-gray-900 dark:text-white">{selectedNode.data.event}</p>
+								<p className="text-base font-medium text-gray-900 dark:text-white" style={{ overflowWrap: 'anywhere' }}>{selectedNode.data.event}</p>
 							</div>
 						</div>
 

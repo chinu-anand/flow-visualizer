@@ -1,14 +1,16 @@
 import { Event, Cluster, GraphData } from '../types/index';
 import { clusterEventsByTime, enrichClusters, generateClusterId } from '../utils/clustering';
 import { parseTraceIds, generateGraphData, generateTimeClusterGraphData } from './splunkDataParser';
+import splunkService from './splunkService';
 
-// Import the sample Splunk data
-// Note: In a real application, this would be fetched from an API
-import splunkData from '../static/testjsonlarge.json';
+// For development/testing, we can use static data if needed
+import testSplunkData from '../static/testjsonlarge.json';
 
-// Parse the events from the Splunk data
-// This is done once at load time to avoid re-parsing on each request
-const parsedEvents = parseTraceIds(splunkData).map(trace => ({
+// Flag to toggle between real Splunk API and test data
+const USE_REAL_SPLUNK = false; // Set to true when ready to use real Splunk API
+
+// For development/testing with static data
+const parsedTestEvents = parseTraceIds(testSplunkData).map(trace => ({
   id: trace.id,
   timestamp: trace.timestamp,
   service: trace.clientAppName,
@@ -27,93 +29,131 @@ const clusterCache: Record<string, Cluster[]> = {};
 // API service
 const api = {
   getEvents: async (searchValue: string, searchType: string = 'accountId', timeRange: string = '24hr'): Promise<Event[]> => {
-    // In a real app, this would be an actual API call to fetch data
-    console.log(`Fetching events with ${searchType}=${searchValue}, timeRange=${timeRange}`);
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Filter events based on search criteria
-    let filteredEvents = [...parsedEvents];
-    
-    // Apply additional filtering based on searchType and searchValue if needed
-    // This is just a placeholder for real filtering logic
-    if (searchValue && searchType === 'traceId') {
-      filteredEvents = filteredEvents.filter(event => event.traceId?.includes(searchValue));
+    try {
+      if (USE_REAL_SPLUNK) {
+        // Use real Splunk API
+        const splunkResults = await splunkService.getTraceData(searchValue, searchType, timeRange);
+        
+        // Parse the results into our Event format
+        const parsedEvents = parseTraceIds(splunkResults).map(trace => ({
+          id: trace.id,
+          timestamp: trace.timestamp,
+          service: trace.clientAppName,
+          clientAppName: trace.clientAppName,
+          status: trace.status as 'success' | 'error' | 'pending',
+          event: trace.event,
+          traceId: trace.id
+        }));
+        
+        return parsedEvents;
+      } else {
+        // Use test data for development
+        console.log(`[DEV] Searching for ${searchValue} by ${searchType} in the last ${timeRange}`);
+        
+        // Filter the parsed events based on search criteria
+        let filteredEvents = parsedTestEvents;
+        
+        if (searchValue) {
+          if (searchType === 'traceId') {
+            filteredEvents = parsedTestEvents.filter(event => event.traceId.includes(searchValue));
+          } else if (searchType === 'accountId') {
+            // In a real app, we would filter by accountId
+            // For now, just return all events
+          } else if (searchType === 'userId') {
+            // In a real app, we would filter by userId
+            // For now, just return all events
+          }
+        }
+        
+        return filteredEvents;
+      }
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      throw new Error('Failed to fetch events. Please try again.');
     }
-    
-    return filteredEvents;
   },
   
   getClusters: async (searchValue: string, searchType: string = 'accountId', timeRange: string = '24hr', timeWindowMs: number = 300000): Promise<Cluster[]> => {
-    // Generate a cache key based on the parameters
-    const cacheKey = `${searchValue}-${searchType}-${timeRange}-${timeWindowMs}`;
-    
-    // Return cached clusters if available
-    if (clusterCache[cacheKey]) {
-      return clusterCache[cacheKey];
+    try {
+      // Generate a cache key based on the search parameters
+      const cacheKey = `${searchValue}-${searchType}-${timeRange}-${timeWindowMs}`;
+      
+      // Check if we have cached results
+      if (clusterCache[cacheKey]) {
+        return clusterCache[cacheKey];
+      }
+      
+      // Get events based on search criteria
+      const events = await api.getEvents(searchValue, searchType, timeRange);
+      
+      // Cluster events by time
+      const clusters = clusterEventsByTime(events, timeWindowMs);
+      
+      // Enrich clusters with additional data
+      const enrichedClusters = enrichClusters(clusters);
+      
+      // Add cluster IDs to match the Cluster type
+      const clustersWithIds = enrichedClusters.map(cluster => ({
+        ...cluster,
+        id: generateClusterId(cluster.events)
+      }));
+      
+      // Cache the results
+      clusterCache[cacheKey] = clustersWithIds;
+      
+      return clustersWithIds;
+    } catch (error) {
+      console.error('Error fetching clusters:', error);
+      throw new Error('Failed to fetch clusters. Please try again.');
     }
-    
-    // Fetch events
-    const events = await api.getEvents(searchValue, searchType, timeRange);
-    
-    // Cluster events by time
-    const eventClusters = clusterEventsByTime(events, timeWindowMs);
-    
-    // Enrich clusters with metadata
-    const enrichedClusters = enrichClusters(eventClusters);
-    
-    // Add cluster IDs
-    const clusters = enrichedClusters.map(cluster => ({
-      ...cluster,
-      id: generateClusterId(cluster.events)
-    }));
-    
-    // Cache the clusters
-    clusterCache[cacheKey] = clusters;
-    
-    return clusters;
-  },
-  
-  // Legacy method for backward compatibility
-  getTraceIds: async (searchValue: string, searchType: string = 'accountId', timeRange: string = '24hr'): Promise<any[]> => {
-    console.log(`Fetching trace IDs (legacy method)`);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return parseTraceIds(splunkData);
   },
   
   getGraphData: async (id: string, isCluster: boolean = false): Promise<GraphData> => {
-    // In a real app, this would be an actual API call
-    console.log(`Fetching graph data for ${isCluster ? 'cluster' : 'trace'} ID: ${id}`);
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 800));
-    
-    // Return cached data if available
-    if (graphDataCache[id]) {
-      return graphDataCache[id];
-    }
-    
-    if (isCluster) {
-      // Extract the startTime from the ID
-      // The ID is actually the startTime that was passed from ClustersPage
-      const startTime = id !== 'time-cluster' ? id : undefined;
+    try {
+      // Check if we have cached results
+      if (graphDataCache[id]) {
+        return graphDataCache[id];
+      }
       
-      // Use the new function that works directly with splunkData
-      const graphData = generateTimeClusterGraphData(splunkData, 300000, startTime); // 5 minutes time window
+      let data = USE_REAL_SPLUNK ? [] : testSplunkData;
       
-      // Cache the generated data
-      graphDataCache[id] = graphData;
+      if (USE_REAL_SPLUNK) {
+        // If using real Splunk, fetch the data we need
+        if (isCluster) {
+          // For time-based clustering, we need to fetch data for a specific time window
+          const startTime = id !== 'time-cluster' ? id : undefined;
+          const timeRange = startTime ? `${new Date(startTime).toISOString()} to +5m` : '5m';
+          data = await splunkService.search('index=*', { earliest_time: timeRange });
+        } else {
+          // For trace-based view, fetch data for the specific trace ID
+          data = await splunkService.search(`index=* "fields.x-b3-traceid"="${id}"`);
+        }
+      }
       
-      return graphData;
-    } else {
-      // Generate graph data from Splunk data for a single trace ID
-      const graphData = generateGraphData(splunkData, id);
-      
-      // Cache the generated data
-      graphDataCache[id] = graphData;
-      
-      return graphData;
+      if (isCluster) {
+        // Extract the startTime from the ID
+        // The ID is actually the startTime that was passed from ClustersPage
+        const startTime = id !== 'time-cluster' ? id : undefined;
+        
+        // Use the function that works directly with splunk data
+        const graphData = generateTimeClusterGraphData(data, 300000, startTime); // 5 minutes time window
+        
+        // Cache the generated data
+        graphDataCache[id] = graphData;
+        
+        return graphData;
+      } else {
+        // Generate graph data for a specific trace ID
+        const graphData = generateGraphData(data, id);
+        
+        // Cache the generated data
+        graphDataCache[id] = graphData;
+        
+        return graphData;
+      }
+    } catch (error) {
+      console.error('Error fetching graph data:', error);
+      throw new Error('Failed to fetch graph data. Please try again.');
     }
   }
 };
